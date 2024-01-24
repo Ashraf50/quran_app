@@ -42,12 +42,12 @@ class CustomAppBar extends StatelessWidget {
               ),
               Text(
                 title,
-                style:  TextStyle(
+                style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: themeProvider.isDarkTheme?
-                  Colors.white:
-                  const Color(0xff672CBC),
+                  color: themeProvider.isDarkTheme
+                      ? Colors.white
+                      : const Color(0xff672CBC),
                 ),
               ),
             ],

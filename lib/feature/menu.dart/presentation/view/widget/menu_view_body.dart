@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:quran_app/core/color/colors.dart';
+import 'package:quran_app/core/utils/theme_mode.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
 import 'package:quran_app/feature/menu.dart/presentation/view/widget/custom_list_tile.dart';
+import 'package:quran_app/feature/menu.dart/presentation/view/widget/dark_mode_widget.dart';
 
 class MenuViewBody extends StatelessWidget {
   const MenuViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -20,7 +26,23 @@ class MenuViewBody extends StatelessWidget {
               leftIcon: Icons.sort,
               rightIconOnTap: () {},
             ),
-            const CustomListTile(),
+            CustomListTile(
+              title: "Add new collection",
+              textColor: themeProvider.isDarkTheme ? Colors.white : secondColor,
+              leftIcon: FontAwesomeIcons.folder,
+              rightIcon: Icons.sort,
+            ),
+            const CustomListTile(
+              title: "My Favorite",
+              leftIcon: FontAwesomeIcons.folder,
+              rightIcon: Icons.more_vert_outlined,
+            ),
+            const CustomListTile(
+              title: "Daily",
+              leftIcon: FontAwesomeIcons.folder,
+              rightIcon: Icons.more_vert_outlined,
+            ),
+            const DarkModeWidget(),
           ],
         ),
       ),
