@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/core/color/colors.dart';
-import 'package:quran_app/core/utils/theme_mode.dart';
+import 'package:quran_app/core/constant/colors.dart';
+import 'package:quran_app/core/constant/theme_mode.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
 import 'package:quran_app/feature/menu.dart/presentation/view/widget/custom_list_tile.dart';
 import 'package:quran_app/feature/menu.dart/presentation/view/widget/dark_mode_widget.dart';

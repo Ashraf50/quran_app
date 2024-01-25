@@ -1,34 +1,34 @@
 import 'ayah.dart';
 
 class Surah {
-  int? number;
-  String? name;
-  String? englishName;
-  String? englishNameTranslation;
-  String? revelationType;
-  List<Ayah>? ayahs;
+  int number;
+  String name;
+  String englishName;
+  String englishNameTranslation;
+  String revelationType;
+  List<Ayah> ayahs;
 
   Surah({
-    this.number,
-    this.name,
-    this.englishName,
-    this.englishNameTranslation,
-    this.revelationType,
-    this.ayahs,
+    required this.number,
+    required this.name,
+    required this.englishName,
+    required this.englishNameTranslation,
+    required this.revelationType,
+    required this.ayahs,
   });
 
   @override
   String toString() {
-    return 'Surah(number: $number, name: $name, englishName: $englishName, englishNameTranslation: $englishNameTranslation, revelationType: $revelationType, ayahs: $ayahs)';
+    return 'Surah(number: $number, name: $name, englishName: $englishName, englishNameTranslation: $englishNameTranslation, revelationType: $revelationType, ayahs: $ayahs,)';
   }
 
   factory Surah.fromJson(Map<String, dynamic> json) => Surah(
-        number: json['number'] as int?,
-        name: json['name'] as String?,
-        englishName: json['englishName'] as String?,
-        englishNameTranslation: json['englishNameTranslation'] as String?,
-        revelationType: json['revelationType'] as String?,
-        ayahs: (json['ayahs'] as List<dynamic>?)
+        number: json['number'],
+        name: json['name'],
+        englishName: json['englishName'],
+        englishNameTranslation: json['englishNameTranslation'],
+        revelationType: json['revelationType'],
+        ayahs: (json['ayahs'])
             ?.map((e) => Ayah.fromJson(e as Map<String, dynamic>))
             .toList(),
       );
@@ -39,6 +39,6 @@ class Surah {
         'englishName': englishName,
         'englishNameTranslation': englishNameTranslation,
         'revelationType': revelationType,
-        'ayahs': ayahs?.map((e) => e.toJson()).toList(),
+        'ayahs': ayahs.map((e) => e.toJson()).toList(),
       };
 }

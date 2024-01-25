@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/core/utils/theme_mode.dart';
+import 'package:quran_app/core/constant/theme_mode.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/last_read_widget.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/surah_list_view.dart';
