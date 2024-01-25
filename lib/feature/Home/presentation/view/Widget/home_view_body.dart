@@ -5,7 +5,6 @@ import 'package:quran_app/core/utils/theme_mode.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/last_read_widget.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/surah_list_view.dart';
-import 'package:quran_app/feature/Home/presentation/view/Widget/surah_widget.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
