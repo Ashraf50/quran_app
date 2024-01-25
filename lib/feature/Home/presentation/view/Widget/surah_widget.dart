@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/core/utils/text_style.dart';
-import 'package:quran_app/core/utils/theme_mode.dart';
+import 'package:quran_app/core/constant/text_style.dart';
+import 'package:quran_app/core/constant/theme_mode.dart';
+import 'package:quran_app/core/utils/quran_model/quran_model.dart';
 
 class SurahWidget extends StatelessWidget {
-  const SurahWidget({super.key});
+  final QuranModel quran;
+  const SurahWidget({super.key, required this.quran});
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +43,14 @@ class SurahWidget extends StatelessWidget {
                   const SizedBox(
                     width: 16,
                   ),
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Al-Fatiah",
+                        quran.data?.surahs[0].englishName?? "Ashr",
                         style: Styles.textStyle16,
                       ),
-                      Row(
+                      const Row(
                         children: [
                           Text(
                             "Meccan ",

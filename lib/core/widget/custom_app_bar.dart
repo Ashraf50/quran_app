@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/core/utils/theme_mode.dart';
+import 'package:quran_app/core/constant/theme_mode.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String title;

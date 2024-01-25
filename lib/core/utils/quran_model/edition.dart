@@ -1,18 +1,18 @@
 class Edition {
-  String? identifier;
-  String? language;
-  String? name;
-  String? englishName;
-  String? format;
-  String? type;
+  String identifier;
+  String language;
+  String name;
+  String englishName;
+  String format;
+  String type;
 
   Edition({
-    this.identifier,
-    this.language,
-    this.name,
-    this.englishName,
-    this.format,
-    this.type,
+    required this.identifier,
+    required this.language,
+    required this.name,
+    required this.englishName,
+    required this.format,
+    required this.type,
   });
 
   @override
@@ -21,12 +21,12 @@ class Edition {
   }
 
   factory Edition.fromJson(Map<String, dynamic> json) => Edition(
-        identifier: json['identifier'] as String?,
-        language: json['language'] as String?,
-        name: json['name'] as String?,
-        englishName: json['englishName'] as String?,
-        format: json['format'] as String?,
-        type: json['type'] as String?,
+        identifier: json['identifier'] ,
+        language: json['language'] ,
+        name: json['name'] ,
+        englishName: json['englishName'] ,
+        format: json['format'],
+        type: json['type'],
       );
 
   Map<String, dynamic> toJson() => {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/color/colors.dart';
+import 'package:quran_app/core/constant/colors.dart';
 
 class CustomListTile extends StatelessWidget {
   final IconData? leftIcon;

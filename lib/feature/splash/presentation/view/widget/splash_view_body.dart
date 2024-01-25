@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/core/utils/theme_mode.dart';
+import 'package:quran_app/core/constant/theme_mode.dart';
 import 'package:quran_app/core/widget/bottom_bar.dart';
 
 class SplashViewBody extends StatelessWidget {

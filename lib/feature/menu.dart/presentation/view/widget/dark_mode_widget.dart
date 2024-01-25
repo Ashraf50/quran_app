@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/core/color/colors.dart';
-import 'package:quran_app/core/utils/theme_mode.dart';
+import 'package:quran_app/core/constant/colors.dart';
+import 'package:quran_app/core/constant/theme_mode.dart';
 
 class DarkModeWidget extends StatefulWidget {
   const DarkModeWidget({super.key});

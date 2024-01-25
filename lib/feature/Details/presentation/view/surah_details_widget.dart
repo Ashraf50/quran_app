@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/utils/text_style.dart';
+import 'package:quran_app/core/constant/text_style.dart';
 
 class SurahDetailsWidget extends StatelessWidget {
   const SurahDetailsWidget({super.key});
