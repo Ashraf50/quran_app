@@ -25,12 +25,14 @@ class ThemeProvider with ChangeNotifier {
 }
 
 final darkTheme = ThemeData(
-  primaryColor: Colors.black,
+  primaryColor: const Color(0xff240F4F),
   brightness: Brightness.dark,
   hintColor: Colors.white,
-  dividerColor: Colors.black54,
+  scaffoldBackgroundColor:Color(0xff1D2233),
+  dividerColor: const Color(0xff240F4F),
   colorScheme: const ColorScheme.dark(
-    surface: Color(0xff040C23),
+    surface: Color(0xff240F4F),
+    
   ),
 );
 

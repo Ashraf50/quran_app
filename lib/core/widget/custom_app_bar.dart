@@ -23,7 +23,7 @@ class CustomAppBar extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -38,7 +38,7 @@ class CustomAppBar extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 24,
+                width: 10,
               ),
               Text(
                 title,

@@ -16,7 +16,7 @@ class _DarkModeWidgetState extends State<DarkModeWidget> {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return Padding(
-      padding: const EdgeInsets.only(left: 38, right: 25),
+      padding: const EdgeInsets.only(left: 20, right: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -28,7 +28,7 @@ class _DarkModeWidgetState extends State<DarkModeWidget> {
                 color: secondColor,
               ),
               const SizedBox(
-                width: 15,
+                width: 18,
               ),
               const Text(
                 "Dark Mode",
