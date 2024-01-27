@@ -48,7 +48,7 @@ class SurahDetailsWidget extends StatelessWidget {
                 const SizedBox(
                   height: 60,
                 ),
-                 const Text(
+                const Text(
                   "بسم الله الرحمن الرحيم",
                   style: Styles.textStyle24,
                 )

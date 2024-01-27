@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:quran_app/feature/Details/presentation/view/details_view.dart';
+import 'package:quran_app/feature/Home/presentation/view/Widget/loading.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/surah_widget.dart';
 import 'package:quran_app/feature/Home/presentation/view_model/cubit/get_all_quran_cubit.dart';
 
@@ -29,9 +30,7 @@ class SurahListView extends StatelessWidget {
         } else if (state is GetAllQuranFailure) {
           return Center(child: Text(state.errMessage));
         } else {
-          return const CircularProgressIndicator(
-            strokeWidth: 20,
-          );
+          return const Loading();
         }
       },
     );
