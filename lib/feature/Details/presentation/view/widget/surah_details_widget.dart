@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/constant/text_style.dart';
+import 'package:quran_app/core/utils/quran_model/surah.dart';
 
 class SurahDetailsWidget extends StatelessWidget {
-  const SurahDetailsWidget({super.key});
+  final SurahModel surah;
+
+  const SurahDetailsWidget({super.key, required this.surah});
 
   @override
   Widget build(BuildContext context) {
@@ -11,41 +14,41 @@ class SurahDetailsWidget extends StatelessWidget {
       child: Stack(
         children: [
           Image.asset("assets/img/details background.png"),
-          const Positioned(
+          Positioned(
             top: 70,
             left: 110,
             child: Column(
               children: [
                 Text(
-                  "Al-Fatiah",
+                  surah.englishName,
                   style: Styles.textStyle26,
                 ),
                 Text(
-                  "The opening",
-                  style: TextStyle(
+                  surah.englishNameTranslation,
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Row(
                   children: [
                     Text(
-                      "MECCAN ",
+                      "${surah.revelationType} ",
                       style: Styles.textStyle14,
                     ),
                     Text(
-                      "- 7 VERSES",
+                      "- ${surah.ayahs.length.toString()} VERSES",
                       style: Styles.textStyle14,
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
-                Text(
+                 const Text(
                   "بسم الله الرحمن الرحيم",
                   style: Styles.textStyle24,
                 )

@@ -7,7 +7,7 @@ final class GetAllQuranInitial extends GetAllQuranState {}
 final class GetAllQuranLoading extends GetAllQuranState {}
 
 final class GetAllQuranSuccess extends GetAllQuranState {
-  final List<QuranModel> quran;
+  final List<SurahModel> quran;
   GetAllQuranSuccess({required this.quran});
 }
 

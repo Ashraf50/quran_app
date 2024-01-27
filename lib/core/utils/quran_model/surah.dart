@@ -1,14 +1,14 @@
-import 'ayah.dart';
+import 'package:quran_app/core/utils/quran_model/ayah.dart';
 
-class Surah {
+class SurahModel {
   int number;
   String name;
   String englishName;
   String englishNameTranslation;
   String revelationType;
-  List<Ayah> ayahs;
+  List<dynamic> ayahs;
 
-  Surah({
+  SurahModel({
     required this.number,
     required this.name,
     required this.englishName,
@@ -22,7 +22,7 @@ class Surah {
     return 'Surah(number: $number, name: $name, englishName: $englishName, englishNameTranslation: $englishNameTranslation, revelationType: $revelationType, ayahs: $ayahs,)';
   }
 
-  factory Surah.fromJson(Map<String, dynamic> json) => Surah(
+  factory SurahModel.fromJson(Map<String, dynamic> json) => SurahModel(
         number: json['number'],
         name: json['name'],
         englishName: json['englishName'],

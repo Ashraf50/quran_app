@@ -3,11 +3,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/constant/text_style.dart';
 import 'package:quran_app/core/constant/theme_mode.dart';
-import 'package:quran_app/core/utils/quran_model/quran_model.dart';
+import 'package:quran_app/core/utils/quran_model/surah.dart';
 
 class SurahWidget extends StatelessWidget {
-  final QuranModel quran;
-  const SurahWidget({super.key, required this.quran});
+  final SurahModel surah;
+  const SurahWidget({super.key, required this.surah});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,8 @@ class SurahWidget extends StatelessWidget {
                         left: 14,
                         top: 8,
                         child: Text(
-                          "1",
+                          textAlign: TextAlign.center,
+                          surah.number.toString(),
                           style: TextStyle(
                             fontSize: 14,
                             color: themeProvider.isDarkTheme
@@ -47,17 +48,17 @@ class SurahWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        quran.data?.surahs[0].englishName?? "Ashr",
+                        surah.englishName,
                         style: Styles.textStyle16,
                       ),
-                      const Row(
+                      Row(
                         children: [
                           Text(
-                            "Meccan ",
+                            surah.revelationType,
                             style: Styles.textStyle12,
                           ),
                           Text(
-                            "- 7 verses",
+                            "- ${surah.ayahs.length} verses",
                             style: Styles.textStyle12,
                           ),
                         ],
@@ -66,10 +67,10 @@ class SurahWidget extends StatelessWidget {
                   )
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.only(right: 8),
+              Padding(
+                padding: const EdgeInsets.only(right: 8),
                 child: Text(
-                  "الفاتحه",
+                  surah.name,
                   style: Styles.textStyle20,
                 ),
               )

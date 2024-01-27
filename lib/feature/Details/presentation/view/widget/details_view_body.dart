@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quran_app/core/utils/quran_model/surah.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
-import 'package:quran_app/feature/Details/presentation/view/surah_details_widget.dart';
+import 'package:quran_app/feature/Details/presentation/view/widget/surah_details_widget.dart';
 
 class DetailsViewBody extends StatelessWidget {
-  const DetailsViewBody({super.key});
+  final SurahModel surah;
+
+  const DetailsViewBody({super.key, required this.surah});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class DetailsViewBody extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
-            const SurahDetailsWidget(),
+            SurahDetailsWidget(surah: surah),
           ],
         ),
       ),

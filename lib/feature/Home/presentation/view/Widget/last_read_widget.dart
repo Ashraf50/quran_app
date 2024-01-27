@@ -38,7 +38,6 @@ class LastReadWidget extends StatelessWidget {
                 "Al-Fatiah",
                 style: Styles.textStyle18,
               ),
-
               Text(
                 "Ayah No: 1",
                 style: Styles.textStyle14,
