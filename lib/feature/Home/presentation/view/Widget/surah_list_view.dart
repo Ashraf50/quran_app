@@ -20,6 +20,8 @@ class SurahListView extends StatelessWidget {
             itemCount: state.quran.length,
             itemBuilder: (context, index) {
               return InkWell(
+                borderRadius: BorderRadius.circular(10),
+                mouseCursor: MaterialStateMouseCursor.clickable,
                 onTap: () {
                   Get.to(DetailsView(
                     surahNumber: index + 1,
