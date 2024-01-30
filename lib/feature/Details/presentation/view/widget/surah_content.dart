@@ -1,3 +1,6 @@
+// ignore_for_file: dead_code
+
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/constant/colors.dart';
@@ -6,12 +9,19 @@ import 'package:quran_app/core/utils/quran_model/ayah.dart';
 import 'package:quran_app/feature/Details/presentation/view/widget/ayah_verses.dart';
 import 'package:share_plus/share_plus.dart';
 
-class SurahContent extends StatelessWidget {
+class SurahContent extends StatefulWidget {
   final Ayah ayah;
   const SurahContent({
     super.key,
     required this.ayah,
   });
+
+  @override
+  State<SurahContent> createState() => _SurahContentState();
+}
+
+class _SurahContentState extends State<SurahContent> {
+  bool isPlaying = false;
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
@@ -29,13 +39,13 @@ class SurahContent extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 10),
-                child: AyahVerses(ayahVerses: ayah.numberInSurah),
+                child: AyahVerses(ayahVerses: widget.ayah.numberInSurah),
               ),
               Row(
                 children: [
                   IconButton(
                     onPressed: () {
-                      Share.share(ayah.text);
+                      Share.share(widget.ayah.text);
                     },
                     icon: Icon(
                       Icons.share_outlined,
@@ -43,9 +53,19 @@ class SurahContent extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      final player = AudioPlayer();
+                      if (isPlaying) {
+                        player.pause();
+                      } else {
+                        await player.play(UrlSource(widget.ayah.audio));
+                      }
+                      setState(() {
+                        isPlaying = !isPlaying;
+                      });
+                    },
                     icon: Icon(
-                      Icons.play_arrow_outlined,
+                      isPlaying ? Icons.pause : Icons.play_arrow_outlined,
                       color: secondColor,
                       size: 30,
                     ),
@@ -70,7 +90,7 @@ class SurahContent extends StatelessWidget {
           child: Directionality(
             textDirection: TextDirection.rtl,
             child: Text(
-              ayah.text,
+              widget.ayah.text,
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,

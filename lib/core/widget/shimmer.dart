@@ -17,11 +17,12 @@ class ShimmerLoading extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return Shimmer.fromColors(
-      baseColor:
-          themeProvider.isDarkTheme ? const Color(0xff1D2233) : Colors.grey,
+      baseColor: themeProvider.isDarkTheme
+          ? const Color(0xff1D2233)
+          : const Color.fromARGB(116, 158, 158, 158),
       highlightColor: themeProvider.isDarkTheme
           ? const Color.fromARGB(61, 54, 63, 92)
-          : const Color.fromARGB(231, 158, 158, 158),
+          : Color.fromARGB(125, 158, 158, 158),
       child: Container(
         height: height,
         width: width,
