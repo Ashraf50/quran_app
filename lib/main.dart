@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/constant/theme_mode.dart';
 import 'package:quran_app/core/utils/api_services.dart';
-import 'package:quran_app/feature/Home/data/repos/home_repo_impl.dart';
+import 'package:quran_app/core/repos/repo_impl.dart';
 import 'package:quran_app/feature/Home/presentation/view_model/cubit/get_all_quran_cubit.dart';
 import 'package:quran_app/feature/splash/presentation/view/splash_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,7 +24,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);

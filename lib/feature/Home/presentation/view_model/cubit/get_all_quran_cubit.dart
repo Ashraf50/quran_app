@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran_app/core/utils/quran_model/surah.dart';
-import 'package:quran_app/feature/Home/data/repos/home_repo.dart';
+import 'package:quran_app/core/utils/quran_model/surah_model.dart';
+import 'package:quran_app/core/repos/repo.dart';
 
 part 'get_all_quran_state.dart';
 

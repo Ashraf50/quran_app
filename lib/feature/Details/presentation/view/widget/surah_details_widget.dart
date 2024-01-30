@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/constant/text_style.dart';
-import 'package:quran_app/core/utils/quran_model/surah.dart';
+import 'package:quran_app/core/utils/quran_model/surah_model.dart';
 
 class SurahDetailsWidget extends StatelessWidget {
   final SurahModel surah;
-
-  const SurahDetailsWidget({super.key, required this.surah});
+  const SurahDetailsWidget({
+    super.key,
+    required this.surah,
+  });
 
   @override
   Widget build(BuildContext context) {

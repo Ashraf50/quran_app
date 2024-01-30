@@ -21,7 +21,10 @@ class SurahListView extends StatelessWidget {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  Get.to( DetailsView(surah: state.quran[index],));
+                  Get.to(DetailsView(
+                    surahNumber: index + 1,
+                    surah: state.quran[index],
+                  ));
                 },
                 child: SurahWidget(surah: state.quran[index]),
               );

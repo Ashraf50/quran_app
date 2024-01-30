@@ -3,16 +3,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/constant/text_style.dart';
 import 'package:quran_app/core/constant/theme_mode.dart';
-import 'package:quran_app/core/utils/quran_model/surah.dart';
+import 'package:quran_app/core/utils/quran_model/surah_model.dart';
 
 class SurahWidget extends StatelessWidget {
   final SurahModel surah;
-  const SurahWidget({super.key, required this.surah});
+  const SurahWidget({
+    super.key,
+    required this.surah,
+  });
 
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
       child: Column(
@@ -84,7 +86,7 @@ class SurahWidget extends StatelessWidget {
             child: Divider(
               color: Color.fromARGB(135, 187, 196, 206),
             ),
-          )
+          ), 
         ],
       ),
     );
