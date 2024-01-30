@@ -18,7 +18,7 @@ class SurahDetailsWidget extends StatelessWidget {
           Image.asset("assets/img/details background.png"),
           Positioned(
             top: 70,
-            left: 110,
+            left: 150,
             child: Column(
               children: [
                 Text(
@@ -50,10 +50,6 @@ class SurahDetailsWidget extends StatelessWidget {
                 const SizedBox(
                   height: 60,
                 ),
-                const Text(
-                  "بسم الله الرحمن الرحيم",
-                  style: Styles.textStyle24,
-                )
               ],
             ),
           )

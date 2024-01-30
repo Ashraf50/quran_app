@@ -20,6 +20,7 @@ class SurahListView extends StatelessWidget {
             itemCount: state.quran.length,
             itemBuilder: (context, index) {
               return InkWell(
+                
                 borderRadius: BorderRadius.circular(10),
                 mouseCursor: MaterialStateMouseCursor.clickable,
                 onTap: () {
