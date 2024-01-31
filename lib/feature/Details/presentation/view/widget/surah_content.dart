@@ -1,5 +1,4 @@
 // ignore_for_file: dead_code
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,10 +9,14 @@ import 'package:quran_app/feature/Details/presentation/view/widget/ayah_verses.d
 import 'package:share_plus/share_plus.dart';
 
 class SurahContent extends StatefulWidget {
+  final Widget icon;
+  final Function() onPressed;
   final Ayah ayah;
   const SurahContent({
     super.key,
     required this.ayah,
+    required this.icon,
+    required this.onPressed,
   });
 
   @override
@@ -71,12 +74,9 @@ class _SurahContentState extends State<SurahContent> {
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.bookmark_border,
-                      color: secondColor,
-                    ),
-                  )
+                    onPressed: widget.onPressed,
+                    icon: widget.icon,
+                  ),
                 ],
               )
             ],

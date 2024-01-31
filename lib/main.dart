@@ -6,6 +6,7 @@ import 'package:quran_app/core/constant/theme_mode.dart';
 import 'package:quran_app/core/utils/api_services.dart';
 import 'package:quran_app/core/repos/repo_impl.dart';
 import 'package:quran_app/feature/Home/presentation/view_model/cubit/get_all_quran_cubit.dart';
+import 'package:quran_app/feature/menu.dart/data/cubit/book_marks_cubit.dart';
 import 'package:quran_app/feature/splash/presentation/view/splash_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
             ),
           )..fetchAllQuran(),
         ),
+        BlocProvider(create: (context) => BookMarksCubit(),)
       ],
       child: GetMaterialApp(
         theme: themeProvider.getThemeData,
