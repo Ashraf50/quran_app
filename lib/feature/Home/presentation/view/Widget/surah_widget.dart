@@ -86,7 +86,7 @@ class SurahWidget extends StatelessWidget {
             child: Divider(
               color: Color.fromARGB(135, 187, 196, 206),
             ),
-          ), 
+          ),
         ],
       ),
     );

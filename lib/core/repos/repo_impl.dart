@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:quran_app/core/error/failure.dart';
 import 'package:quran_app/core/utils/api_services.dart';
+import 'package:quran_app/core/utils/ayah_tafser/result.dart';
 import 'package:quran_app/core/utils/hadith_model/hadith_model.dart';
 import 'package:quran_app/core/utils/quran_model/ayah.dart';
 import 'package:quran_app/core/utils/quran_model/surah_model.dart';
@@ -15,7 +16,6 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiServices.get(
           endPoint: "https://api.alquran.cloud/v1/quran/quran-uthmani");
-
       List<SurahModel> quran = [];
       for (var surah in data["data"]["surahs"]) {
         quran.add(SurahModel.fromJson(surah));
@@ -32,10 +32,12 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<Ayah>>> fetchAllAyahs({required int surahNumber}) async {
+  Future<Either<Failure, List<Ayah>>> fetchAllAyahs(
+      {required int surahNumber}) async {
     try {
       var data = await apiServices.get(
-          endPoint: "https://api.alquran.cloud/v1/surah/$surahNumber/ar.alafasy");
+          endPoint:
+              "https://api.alquran.cloud/v1/surah/$surahNumber/ar.alafasy");
       List<Ayah> ayahs = [];
       for (var ayah in data["data"]["ayahs"]) {
         ayahs.add(Ayah.fromJson(ayah));
@@ -51,17 +53,36 @@ class HomeRepoImpl implements HomeRepo {
     }
   }
 
+  Future<Either<Failure, List<AyahTafser>>> fetchAllAyahsTafser(
+      {required int surahNumber}) async {
+    try {
+      var data = await apiServices.get(
+          endPoint:
+              "https://quranenc.com/api/v1/translation/sura/arabic_moyassar/$surahNumber");
+      List<AyahTafser> ayahsTafser = [];
+      for (var ayah in data["result"]) {
+        ayahsTafser.add(AyahTafser.fromJson(ayah));
+      }
+      return right(ayahsTafser);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDiorError(e));
+      }
+      return left(
+        ServerFailure(e.toString()),
+      );
+    }
+  }
+
   @override
   Future<Either<Failure, List<HadithModel>>> fetchAllHadith() async {
     try {
-      String apiKey =
-          "\$2y\$10\$tCJFqHJ2GEdZqbcbafu6b531ciM4rR5mRniJqDqk8Vw4QcQTfS";
       var data = await apiServices.get(
           endPoint:
-              "https://www.hadithapi.com/public/api/hadiths?apiKey=$apiKey");
+              "https://hadis-api-id.vercel.app/hadith/abu-dawud?page=1&limit=100");
 
       List<HadithModel> hadiths = [];
-      for (var hadith in data["hadiths"]["data"]) {
+      for (var hadith in data["items"]) {
         hadiths.add(HadithModel.fromJson(hadith));
       }
       return right(hadiths);

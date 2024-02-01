@@ -4,7 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran_app/core/constant/colors.dart';
 import 'package:quran_app/core/repos/repo_impl.dart';
 import 'package:quran_app/core/utils/api_services.dart';
-import 'package:quran_app/feature/Details/data/cubit/get_all_ayahs_cubit.dart';
+import 'package:quran_app/core/widget/show_snack_bar.dart';
+import 'package:quran_app/feature/Details/data/get_all_ayah_cubit/get_all_ayahs_cubit.dart';
 import 'package:quran_app/feature/Details/presentation/view/widget/surah_content.dart';
 import 'package:quran_app/feature/menu.dart/data/cubit/book_marks_cubit.dart';
 
@@ -39,8 +40,18 @@ class SurahContentListView extends StatelessWidget {
                         onPressed: () {
                           if (cubit.isSelected(state.ayahs[index])) {
                             cubit.delete(state.ayahs[index]);
+                            showSnackBar(
+                              context,
+                              "Ayah removed from your Bookmarks",
+                              Icons.check_circle,
+                            );
                           } else {
                             cubit.add(state.ayahs[index]);
+                            showSnackBar(
+                              context,
+                              "Ayah added to your Bookmarks",
+                              Icons.bookmark,
+                            );
                           }
                         },
                         icon: Icon(
@@ -57,8 +68,11 @@ class SurahContentListView extends StatelessWidget {
                     child: Text(state.errMessage),
                   );
                 } else {
-                  return const Center(
-                    child: CircularProgressIndicator(),
+                  return const Padding(
+                    padding: EdgeInsets.only(top: 150),
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
                   );
                 }
               },

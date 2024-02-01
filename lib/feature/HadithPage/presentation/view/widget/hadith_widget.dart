@@ -42,10 +42,12 @@ class HadithWidget extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(right: 6),
-            child: Text(
-              hadith.hadithArabic,
-              style: const TextStyle(
-                fontSize: 18,
+            child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: Text(
+                hadith.arab,
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
           ),

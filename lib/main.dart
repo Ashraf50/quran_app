@@ -37,7 +37,9 @@ class MyApp extends StatelessWidget {
             ),
           )..fetchAllQuran(),
         ),
-        BlocProvider(create: (context) => BookMarksCubit(),)
+        BlocProvider(
+          create: (context) => BookMarksCubit(),
+        )
       ],
       child: GetMaterialApp(
         theme: themeProvider.getThemeData,

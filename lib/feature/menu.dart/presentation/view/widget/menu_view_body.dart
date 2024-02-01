@@ -34,7 +34,7 @@ class MenuViewBody extends StatelessWidget {
               leftIcon: FontAwesomeIcons.folder,
               rightIcon: Icons.sort,
             ),
-             CustomListTile(
+            CustomListTile(
               onTap: () {
                 Get.to(const BookMarksListView());
               },

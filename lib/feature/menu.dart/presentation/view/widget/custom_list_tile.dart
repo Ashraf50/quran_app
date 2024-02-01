@@ -13,7 +13,8 @@ class CustomListTile extends StatelessWidget {
     required this.leftIcon,
     required this.rightIcon,
     required this.title,
-    this.textColor, this.onTap,
+    this.textColor,
+    this.onTap,
   });
 
   @override

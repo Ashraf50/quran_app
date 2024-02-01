@@ -6,7 +6,8 @@ class DetailsView extends StatelessWidget {
   final SurahModel surah;
   final int surahNumber;
 
-  const DetailsView({super.key, required this.surah, required this.surahNumber});
+  const DetailsView(
+      {super.key, required this.surah, required this.surahNumber});
 
   @override
   Widget build(BuildContext context) {

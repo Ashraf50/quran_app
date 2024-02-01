@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quran_app/core/constant/colors.dart';
+import 'package:quran_app/feature/AzkarPage/presentation/view/azkar_view.dart';
 import 'package:quran_app/feature/HadithPage/presentation/view/hadith_view.dart';
 import 'package:quran_app/feature/Home/presentation/view/home_view.dart';
 import 'package:quran_app/feature/menu.dart/presentation/view/mnue_view.dart';
@@ -24,7 +25,7 @@ class _BottomBarState extends State<BottomBar> {
   List pages = [
     const HomeView(),
     const HadithView(),
-    const HomeView(),
+    const AzkarView(),
     const MenuView(),
   ];
   @override
