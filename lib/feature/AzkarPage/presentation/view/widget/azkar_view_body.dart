@@ -25,7 +25,10 @@ class AzkarViewBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Lottie.asset("assets/img/pray.json", width: 180),
+              Lottie.asset(
+                "assets/img/pray.json",
+                width: 180,
+              ),
               const Column(
                 children: [
                   Text(
@@ -34,14 +37,14 @@ class AzkarViewBody extends StatelessWidget {
                   ),
                   Text(
                     "ربنا اغفر لنا ",
-                    style: Styles.textStyle16,
+                    style: Styles.textStyle19,
                   )
                 ],
               ),
             ],
           ),
           const Padding(
-            padding: EdgeInsets.only(right: 15),
+            padding: EdgeInsets.only(right: 20),
             child: Directionality(
               textDirection: TextDirection.rtl,
               child: Text(

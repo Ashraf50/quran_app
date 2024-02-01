@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/constant/text_style.dart';
 import 'package:quran_app/core/constant/theme_mode.dart';
@@ -16,7 +15,7 @@ class SurahWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 2),
       child: Column(
         children: [
           Row(
@@ -24,24 +23,29 @@ class SurahWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Stack(
-                    children: [
-                      SvgPicture.asset("assets/img/muslim.svg"),
-                      Positioned(
-                        left: 14,
-                        top: 8,
-                        child: Text(
-                          textAlign: TextAlign.center,
-                          surah.number.toString(),
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: themeProvider.isDarkTheme
-                                ? Colors.white
-                                : Colors.black,
+                  Container(
+                    height: 45,
+                    width: 45,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        scale: 1.0,opacity: 40, 
+                          image: AssetImage(
+                            "assets/img/muslim.png",
                           ),
+                          fit: BoxFit.cover),
+                    ),
+                    child: Center(
+                      child: Text(
+                        textAlign: TextAlign.center,
+                        surah.number.toString(),
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: themeProvider.isDarkTheme
+                              ? Colors.white
+                              : Colors.black,
                         ),
-                      )
-                    ],
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     width: 16,
@@ -79,7 +83,7 @@ class SurahWidget extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 8,
+            height: 3,
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 8),
