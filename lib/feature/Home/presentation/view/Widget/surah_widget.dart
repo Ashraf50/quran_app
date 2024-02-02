@@ -28,7 +28,8 @@ class SurahWidget extends StatelessWidget {
                     width: 45,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        scale: 1.0,opacity: 40, 
+                          scale: 1.0,
+                          opacity: 40,
                           image: AssetImage(
                             "assets/img/muslim.png",
                           ),

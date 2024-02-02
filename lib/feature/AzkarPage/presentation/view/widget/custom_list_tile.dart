@@ -1,53 +1,78 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quran_app/core/constant/text_style.dart';
+import 'package:quran_app/core/constant/theme_mode.dart';
 
 class CustomListTile extends StatelessWidget {
   final String title;
-  final String img;
+  final int id;
   final Function()? onTap;
   const CustomListTile(
-      {super.key, required this.title, required this.onTap, required this.img});
+      {super.key, required this.title, required this.onTap, required this.id});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: InkWell(
         onTap: onTap,
-        child: Container(
-          height: 60,
-          decoration: const BoxDecoration(
-            // color: Colors.white60,
-            borderRadius: BorderRadius.all(
-              Radius.circular(12),
-            ),
-          ),
-          child: Directionality(
-            textDirection: TextDirection.rtl,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Image.asset(img),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      title,
-                      style: Styles.textStyle19,
-                    ),
-                  ],
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Icon(
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        height: 45,
+                        width: 45,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              scale: 1.0,
+                              opacity: 40,
+                              image: AssetImage(
+                                "assets/img/muslim.png",
+                              ),
+                              fit: BoxFit.cover),
+                        ),
+                        child: Center(
+                          child: Text(
+                            textAlign: TextAlign.center,
+                            id.toString(),
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: themeProvider.isDarkTheme
+                                  ? Colors.white
+                                  : Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 13,
+                      ),
+                      Text(
+                        title,
+                        style: Styles.textStyle19,
+                      ),
+                    ],
+                  ),
+                  const Icon(
                     Icons.arrow_forward_ios_outlined,
                     color: Colors.grey,
-                  ),
-                )
-              ],
-            ),
+                  )
+                ],
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                child: Divider(
+                  color: Color.fromARGB(135, 187, 196, 206),
+                ),
+              ),
+            ],
           ),
         ),
       ),

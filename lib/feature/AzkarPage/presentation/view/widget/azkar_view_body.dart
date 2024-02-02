@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:quran_app/core/constant/text_style.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
-import 'package:quran_app/feature/AzkarPage/presentation/view/widget/custom_list_tile.dart';
+import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_list_view.dart';
 
 class AzkarViewBody extends StatelessWidget {
   const AzkarViewBody({super.key});
@@ -25,9 +25,12 @@ class AzkarViewBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Lottie.asset(
-                "assets/img/pray.json",
-                width: 180,
+              SizedBox(
+                height: 165,
+                child: Lottie.asset(
+                  "assets/img/pray.json",
+                  width: 180,
+                ),
               ),
               const Column(
                 children: [
@@ -53,31 +56,7 @@ class AzkarViewBody extends StatelessWidget {
               ),
             ),
           ),
-          CustomListTile(
-            title: "أذكار الصباح",
-            img: "assets/img/azkar_morning.png",
-            onTap: () {},
-          ),
-          CustomListTile(
-            title: "أذكار المساء",
-            img: "assets/img/azkar_evening.png",
-            onTap: () {},
-          ),
-          CustomListTile(
-            title: "أذكار النوم",
-            img: "assets/img/azkar_sleeping.png",
-            onTap: () {},
-          ),
-          CustomListTile(
-            title: "أذكار الاستيقاظ من النوم",
-            img: "assets/img/azkar_wakingUp.png",
-            onTap: () {},
-          ),
-          CustomListTile(
-            title: "أذكار قبل دخول المسجد",
-            img: "assets/img/masged.png",
-            onTap: () {},
-          ),
+          const AzkarListView(),
         ],
       ),
     ));
