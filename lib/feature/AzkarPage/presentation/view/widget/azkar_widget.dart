@@ -1,6 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/constant/colors.dart';
+import 'package:quran_app/core/widget/show_snack_bar.dart';
 import 'package:share_plus/share_plus.dart';
 
 class AzkarWidget extends StatelessWidget {
@@ -8,7 +10,8 @@ class AzkarWidget extends StatelessWidget {
   final String audio;
   const AzkarWidget({
     super.key,
-    required this.text, required this.audio,
+    required this.text,
+    required this.audio,
   });
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,7 @@ class AzkarWidget extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () {
-                    var player=AudioPlayer();
+                    var player = AudioPlayer();
                     player.play(AssetSource(audio));
                   },
                   icon: Icon(
@@ -45,7 +48,11 @@ class AzkarWidget extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    FlutterClipboard.copy(text).then(
+                      (value) => showSnackBar(context, "copied", Icons.copy),
+                    );
+                  },
                   icon: Icon(
                     Icons.copy_outlined,
                     color: secondColor,
