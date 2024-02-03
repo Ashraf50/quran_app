@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
-import 'package:quran_app/feature/Details/presentation/view/widget/surah_content.dart';
 import 'package:quran_app/feature/menu.dart/data/cubit/book_marks_cubit.dart';
 
 class BookMarksListView extends StatelessWidget {
@@ -33,13 +32,17 @@ class BookMarksListView extends StatelessWidget {
                   itemCount: cubit.selectedBooKMarks.length,
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return SurahContent(
-                      ayah: cubit.selectedBooKMarks[index],
-                      icon: const Icon(Icons.bookmark_remove_rounded),
-                      onPressed: () {
-                        cubit.delete(cubit.selectedBooKMarks[index]);
-                      },
-                    );
+                    return Text("data");
+                    
+                    
+                    // SurahContent(
+
+                    //   surahText: cubit.selectedBooKMarks[index],
+                    //   icon: const Icon(Icons.bookmark_remove_rounded),
+                    //   onPressed: () {
+                    //     cubit.delete(cubit.selectedBooKMarks[index]);
+                    //   },
+                    // );
                   },
                 );
               },

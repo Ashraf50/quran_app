@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:quran_app/core/utils/adhkar_model/adhkar_model.dart';
 
 Future<List<AdhkarModel>> getData() async {
-  String jsonString = await rootBundle.loadString('assets/img/adhkar.json');
+  String jsonString = await rootBundle.loadString('assets/Adhkar_json/adhkar.json');
   var dataDecoded = jsonDecode(jsonString);
   List<AdhkarModel> myData = [];
   for (var element in dataDecoded) {

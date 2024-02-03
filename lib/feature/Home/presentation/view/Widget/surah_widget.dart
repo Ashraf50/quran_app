@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/constant/text_style.dart';
 import 'package:quran_app/core/constant/theme_mode.dart';
-import 'package:quran_app/core/utils/quran_model/surah_model.dart';
+import 'package:quran_app/core/utils/quran_model/quran_model.dart';
 
 class SurahWidget extends StatelessWidget {
-  final SurahModel surah;
+  final QuranModel quran;
   const SurahWidget({
     super.key,
-    required this.surah,
+    required this.quran,
   });
 
   @override
@@ -38,7 +38,7 @@ class SurahWidget extends StatelessWidget {
                     child: Center(
                       child: Text(
                         textAlign: TextAlign.center,
-                        surah.number.toString(),
+                        quran.id.toString(),
                         style: TextStyle(
                           fontSize: 14,
                           color: themeProvider.isDarkTheme
@@ -55,17 +55,17 @@ class SurahWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        surah.englishName,
+                        quran.nameTranslation!,
                         style: Styles.textStyle16,
                       ),
                       Row(
                         children: [
                           Text(
-                            surah.revelationType,
+                            quran.typeEn!,
                             style: Styles.textStyle12,
                           ),
                           Text(
-                            "- ${surah.ayahs.length} verses",
+                            "- ${quran.array!.length} verses",
                             style: Styles.textStyle12,
                           ),
                         ],
@@ -77,7 +77,7 @@ class SurahWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 8),
                 child: Text(
-                  surah.name,
+                  quran.name!,
                   style: Styles.textStyle20,
                 ),
               )

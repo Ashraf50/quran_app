@@ -1,85 +1,64 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran_app/core/constant/colors.dart';
-import 'package:quran_app/core/repos/repo_impl.dart';
-import 'package:quran_app/core/utils/api_services.dart';
-import 'package:quran_app/core/widget/show_snack_bar.dart';
-import 'package:quran_app/feature/Details/data/get_all_ayah_cubit/get_all_ayahs_cubit.dart';
+import 'package:quran_app/core/utils/quran_model/quran_model.dart';
 import 'package:quran_app/feature/Details/presentation/view/widget/surah_content.dart';
 import 'package:quran_app/feature/menu.dart/data/cubit/book_marks_cubit.dart';
 
 class SurahContentListView extends StatelessWidget {
-  final int surahNumber;
+  final QuranModel quran;
   const SurahContentListView({
     super.key,
-    required this.surahNumber,
+    required this.quran,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: BlocBuilder<BookMarksCubit, BookMarksState>(
-        builder: (context, state) {
-          var cubit = BookMarksCubit.get(context);
-          return BlocProvider(
-            create: (context) =>
-                GetAllAyahsCubit(HomeRepoImpl(ApiServices(Dio())))
-                  ..fetchAllAyah(surahNumber: surahNumber),
-            child: BlocBuilder<GetAllAyahsCubit, GetAllAyahsState>(
-              builder: (context, state) {
-                if (state is GetAllAyahsSuccess) {
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: state.ayahs.length,
-                    itemBuilder: (context, index) {
-                      return SurahContent(
-                        ayah: state.ayahs[index],
-                        onPressed: () {
-                          if (cubit.isSelected(state.ayahs[index])) {
-                            cubit.delete(state.ayahs[index]);
-                            showSnackBar(
-                              context,
-                              "Ayah removed from your Bookmarks",
-                              Icons.check_circle,
-                            );
-                          } else {
-                            cubit.add(state.ayahs[index]);
-                            showSnackBar(
-                              context,
-                              "Ayah added to your Bookmarks",
-                              Icons.bookmark,
-                            );
-                          }
-                        },
-                        icon: Icon(
-                          cubit.isSelected(state.ayahs[index])
-                              ? Icons.bookmark
-                              : Icons.bookmark_border,
-                          color: secondColor,
-                        ),
-                      );
-                    },
-                  );
-                } else if (state is GetAllAyahsFailure) {
-                  return Center(
-                    child: Text(state.errMessage),
-                  );
-                } else {
-                  return const Padding(
-                    padding: EdgeInsets.only(top: 150),
-                    child: Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                  );
-                }
+    return BlocBuilder<BookMarksCubit, BookMarksState>(
+      builder: (context, state) {
+        // var cubit = BookMarksCubit.get(context);
+        return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: quran.array!.length,
+              itemBuilder: (context, index) {
+                return SurahContent(
+                  surahText: quran.array![index].ar!,
+                  path: quran.array![index].path!,
+                  id: quran.array![index].id!,
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.bookmark,
+                    color: secondColor,
+                  ),
+                  //   if (cubit.isSelected(quran.array![index] as QuranModel)) {
+                  //     cubit.delete(quran.array![index] as QuranModel);
+                  //     showSnackBar(
+                  //       context,
+                  //       "Ayah removed from your Bookmarks",
+                  //       Icons.check_circle,
+                  //     );
+                  //   } else {
+                  //     cubit.add(quran.array![index] as QuranModel);
+                  //     showSnackBar(
+                  //       context,
+                  //       "Ayah added to your Bookmarks",
+                  //       Icons.bookmark,
+                  //     );
+                  //   }
+                  // },
+                  // icon: Icon(
+                  // //   cubit.isSelected(quran.array![index] as QuranModel)
+                  //       Icons.bookmark
+                  //       : Icons.bookmark_border,
+                  //   color: secondColor,
+                  // ),
+                );
               },
-            ),
-          );
-        },
-      ),
+            ));
+      },
     );
   }
 }

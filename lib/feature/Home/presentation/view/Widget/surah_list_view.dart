@@ -1,39 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:quran_app/feature/Details/presentation/view/details_view.dart';
+import 'package:quran_app/feature/Home/data/get_all_quran.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/loading.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/surah_widget.dart';
-import 'package:quran_app/feature/Home/presentation/view_model/cubit/get_all_quran_cubit.dart';
 
 class SurahListView extends StatelessWidget {
   const SurahListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GetAllQuranCubit, GetAllQuranState>(
-      builder: (context, state) {
-        if (state is GetAllQuranSuccess) {
+    return FutureBuilder(
+      future: getAllQuran(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
           return ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: state.quran.length,
+            itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
               return InkWell(
                 borderRadius: BorderRadius.circular(10),
                 mouseCursor: MaterialStateMouseCursor.clickable,
                 onTap: () {
                   Get.to(DetailsView(
-                    surahNumber: index + 1,
-                    surah: state.quran[index],
+                    
+                    quran: snapshot.data![index],
                   ));
                 },
-                child: SurahWidget(surah: state.quran[index]),
+                child: SurahWidget(quran: snapshot.data![index]),
               );
             },
           );
-        } else if (state is GetAllQuranFailure) {
-          return Center(child: Text(state.errMessage));
+        } else if (snapshot.hasError) {
+          return Center(child: Text(snapshot.error.toString()));
         } else {
           return const Loading();
         }

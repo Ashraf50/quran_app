@@ -5,8 +5,10 @@ import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_conte
 
 class AzkarContentView extends StatelessWidget {
   final AdhkarModel azkar;
-  const AzkarContentView({super.key, required this.azkar});
-
+  const AzkarContentView({
+    super.key,
+    required this.azkar,
+  });
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -22,6 +24,9 @@ class AzkarContentView extends StatelessWidget {
             rightIconOnTap: () {
               Navigator.pop(context);
             },
+          ),
+          const SizedBox(
+            height: 15,
           ),
           AzkarContentListView(azkar: azkar),
         ],

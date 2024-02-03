@@ -1,18 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/utils/quran_model/surah_model.dart';
+import 'package:quran_app/core/utils/quran_model/quran_model.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
 import 'package:quran_app/feature/Details/presentation/view/widget/surah_details_widget.dart';
 import 'package:quran_app/feature/Details/presentation/view/widget/surah_content_list_view.dart';
 
 class DetailsViewBody extends StatelessWidget {
-  final SurahModel surah;
-  final int surahNumber;
+  final QuranModel quran;
 
   const DetailsViewBody({
     super.key,
-    required this.surah,
-    required this.surahNumber,
+    required this.quran,
   });
 
   @override
@@ -26,7 +24,7 @@ class DetailsViewBody extends StatelessWidget {
             ),
             CustomAppBar(
               leftIcon: Icons.arrow_back,
-              title: surah.englishName,
+              title: quran.nameTranslation!,
               rightIcon: CupertinoIcons.search,
               rightIconOnTap: () {},
               leftIconOnTap: () {
@@ -34,10 +32,10 @@ class DetailsViewBody extends StatelessWidget {
               },
             ),
             SurahDetailsWidget(
-              surah: surah,
+              quran: quran,
             ),
             SurahContentListView(
-              surahNumber: surahNumber,
+              quran: quran,
             ),
           ],
         ),
