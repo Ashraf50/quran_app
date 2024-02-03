@@ -32,11 +32,16 @@ class AzkarListView extends StatelessWidget {
             );
           } else if (snapshot.hasError) {
             return Center(
-              child: Text(snapshot.error.toString()),
+              child: Text(
+                snapshot.error.toString(),
+              ),
             );
           } else {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: Padding(
+                padding: EdgeInsets.only(top: 180),
+                child: CircularProgressIndicator(),
+              ),
             );
           }
         });

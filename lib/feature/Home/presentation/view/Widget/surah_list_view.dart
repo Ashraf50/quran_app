@@ -23,10 +23,9 @@ class SurahListView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 mouseCursor: MaterialStateMouseCursor.clickable,
                 onTap: () {
-                  Get.to(DetailsView(
-                    
-                    quran: snapshot.data![index],
-                  ));
+                  Get.to(() => DetailsView(
+                        quran: snapshot.data![index],
+                      ));
                 },
                 child: SurahWidget(quran: snapshot.data![index]),
               );

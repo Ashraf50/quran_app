@@ -33,8 +33,7 @@ class BookMarksListView extends StatelessWidget {
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return Text("data");
-                    
-                    
+
                     // SurahContent(
 
                     //   surahText: cubit.selectedBooKMarks[index],

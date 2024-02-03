@@ -55,7 +55,7 @@ class SplashViewBody extends StatelessWidget {
                     right: 110,
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(const BottomBar());
+                        Get.to(() => const BottomBar());
                       },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(

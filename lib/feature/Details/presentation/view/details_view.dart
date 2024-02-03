@@ -5,8 +5,10 @@ import 'package:quran_app/feature/Details/presentation/view/widget/details_view_
 class DetailsView extends StatelessWidget {
   final QuranModel quran;
 
-  const DetailsView(
-      {super.key, required this.quran,});
+  const DetailsView({
+    super.key,
+    required this.quran,
+  });
 
   @override
   Widget build(BuildContext context) {

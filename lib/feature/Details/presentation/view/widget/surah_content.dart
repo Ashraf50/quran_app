@@ -17,7 +17,9 @@ class SurahContent extends StatefulWidget {
     super.key,
     required this.icon,
     required this.onPressed,
-    required this.surahText, required this.path, required this.id,
+    required this.surahText,
+    required this.path,
+    required this.id,
   });
 
   @override
@@ -57,12 +59,12 @@ class _SurahContentState extends State<SurahContent> {
                     ),
                   ),
                   IconButton(
-                    onPressed: () async {
+                    onPressed: () {
                       final player = AudioPlayer();
                       if (isPlaying) {
                         player.pause();
                       } else {
-                        await player.play(UrlSource(widget.path ));
+                        player.play(AssetSource(widget.path));
                       }
                       setState(() {
                         isPlaying = !isPlaying;
