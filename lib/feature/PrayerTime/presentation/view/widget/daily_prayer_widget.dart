@@ -1,99 +1,77 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:quran_app/core/constant/text_style.dart';
+import 'package:quran_app/feature/PrayerTime/data/cubit/get_all_paray_time_cubit.dart';
+import 'package:quran_app/feature/PrayerTime/presentation/view/widget/all_month_pray_time_view.dart';
+import 'package:quran_app/feature/PrayerTime/presentation/view/widget/daily_widget/sub_title_widget.dart';
+import 'package:quran_app/feature/PrayerTime/presentation/view/widget/daily_widget/title_widget.dart';
 
 class DailyPrayerWidget extends StatelessWidget {
   const DailyPrayerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    int day = DateTime.now().day;
     return Center(
-      child: Container(
-        width: 300,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: const Padding(
-          padding: EdgeInsets.symmetric(vertical: 15),
-          child: Center(
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: BlocBuilder<GetAllPrayTimeCubit, GetAllPrayTimeState>(
+        builder: (context, state) {
+          if (state is GetAllPrayTimeSuccess) {
+            return Container(
+              width: 350,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(
+                child: Column(
                   children: [
-                    MyWidget(
-                      text: "الشروق",
-                      time: "05:10",
+                    TitleWIdget(
+                      pray: state.time[day - 1],
                     ),
-                    MyWidget(
-                      text: "الفجر",
-                      time: "05:10",
+                    SubTitleWidget(
+                      pray: state.time[day - 1],
                     ),
+                    InkWell(
+                      onTap: () {
+                        Get.to(
+                          () => const AllMonthPrayTimeView(),
+                        );
+                      },
+                      child: Container(
+                        height: 40,
+                        decoration: const BoxDecoration(
+                          color: Color(0xff1e9bd3),
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10)),
+                        ),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "More",
+                              style: Styles.textStyle19,
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
                   ],
                 ),
-                SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    MyWidget(
-                      text: "العصر",
-                      time: "05:10",
-                    ),
-                    MyWidget(
-                      text: "الظهر",
-                      time: "05:10",
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    MyWidget(
-                      text: "العشاء",
-                      time: "05:10",
-                    ),
-                    MyWidget(
-                      text: "المغرب",
-                      time: "05:10",
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
+              ),
+            );
+          } else if (state is GetAllPrayTimeFailure) {
+            return Center(
+              child: Text(state.errMessage),
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
       ),
-    );
-  }
-}
-
-class MyWidget extends StatelessWidget {
-  final String text;
-  final String time;
-  const MyWidget({super.key, required this.text, required this.time});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Directionality(
-          textDirection: TextDirection.rtl,
-          child: Text(
-            text,
-            style: Styles.textStyle19,
-          ),
-        ),
-        Text(
-          time,
-          style: Styles.textStyle19,
-        ),
-      ],
     );
   }
 }

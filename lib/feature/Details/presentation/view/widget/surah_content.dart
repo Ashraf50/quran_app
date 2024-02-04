@@ -28,6 +28,7 @@ class SurahContent extends StatefulWidget {
 
 class _SurahContentState extends State<SurahContent> {
   bool isPlaying = false;
+  final player = AudioPlayer();
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
@@ -58,24 +59,33 @@ class _SurahContentState extends State<SurahContent> {
                       color: secondColor,
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      final player = AudioPlayer();
-                      if (isPlaying) {
-                        player.pause();
-                      } else {
-                        player.play(AssetSource(widget.path));
-                      }
-                      setState(() {
-                        isPlaying = !isPlaying;
-                      });
-                    },
-                    icon: Icon(
-                      isPlaying ? Icons.pause : Icons.play_arrow_outlined,
-                      color: secondColor,
-                      size: 30,
-                    ),
-                  ),
+                  isPlaying
+                      ? IconButton(
+                          onPressed: () {
+                            setState(() {
+                              player.stop();
+                              isPlaying = false;
+                            });
+                          },
+                          icon: Icon(
+                            Icons.pause,
+                            color: secondColor,
+                            size: 30,
+                          ),
+                        )
+                      : IconButton(
+                          onPressed: () {
+                            setState(() {
+                              player.play(AssetSource(widget.path));
+                              isPlaying = true;
+                            });
+                          },
+                          icon: Icon(
+                            Icons.play_arrow_outlined,
+                            color: secondColor,
+                            size: 30,
+                          ),
+                        ),
                   IconButton(
                     onPressed: widget.onPressed,
                     icon: widget.icon,

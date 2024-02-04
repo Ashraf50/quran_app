@@ -12,7 +12,6 @@ final class GetAllPrayTimeSuccess extends GetAllPrayTimeState {
     required this.time,
   });
 }
-
 final class GetAllPrayTimeFailure extends GetAllPrayTimeState {
   final String errMessage;
   GetAllPrayTimeFailure({

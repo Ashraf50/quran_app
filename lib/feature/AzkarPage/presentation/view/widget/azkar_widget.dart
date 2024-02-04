@@ -22,6 +22,7 @@ class AzkarWidget extends StatefulWidget {
 
 class _AzkarWidgetState extends State<AzkarWidget> {
   bool isPlaying = false;
+  final player = AudioPlayer();
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
@@ -40,24 +41,33 @@ class _AzkarWidgetState extends State<AzkarWidget> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(
-                  onPressed: () async {
-                    final player = AudioPlayer();
-                    if (isPlaying) {
-                      player.pause();
-                    } else {
-                      await player.play(AssetSource(widget.audio));
-                    }
-                    setState(() {
-                      isPlaying = !isPlaying;
-                    });
-                  },
-                  icon: Icon(
-                    isPlaying ? Icons.pause : Icons.play_arrow_outlined,
-                    color: secondColor,
-                    size: 35,
-                  ),
-                ),
+                isPlaying
+                    ? IconButton(
+                        onPressed: () {
+                          setState(() {
+                            player.stop();
+                            isPlaying = false;
+                          });
+                        },
+                        icon: Icon(
+                          Icons.pause,
+                          color: secondColor,
+                          size: 30,
+                        ),
+                      )
+                    : IconButton(
+                        onPressed: () {
+                          setState(() {
+                            player.play(AssetSource(widget.audio));
+                            isPlaying = true;
+                          });
+                        },
+                        icon: Icon(
+                          Icons.play_arrow_outlined,
+                          color: secondColor,
+                          size: 30,
+                        ),
+                      ),
                 IconButton(
                   onPressed: () {
                     Share.share(widget.text);

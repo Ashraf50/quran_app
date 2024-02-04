@@ -3,17 +3,17 @@ import 'package:dio/dio.dart';
 import 'package:quran_app/core/error/failure.dart';
 import 'package:quran_app/core/utils/api_services.dart';
 import 'package:quran_app/core/repos/repo.dart';
-import 'package:quran_app/core/utils/prayer_time_model/prayer_time_model.dart';
+import 'package:quran_app/core/utils/prayer_time_model/pray_time_model.dart';
 
 class HomeRepoImpl implements HomeRepo {
   ApiServices apiServices;
   HomeRepoImpl(this.apiServices);
   @override
-  Future<Either<Failure, List<PrayerTimeModel>>> fetchALlPrayTime() async {
+  Future<Either<Failure, List<PrayerTimeModel>>> fetchALlPrayTimeMonth() async {
     try {
       var data = await apiServices.get(
         endPoint:
-            "https://api.aladhan.com/v1/calendarByCity/2024/2?city=cairo&country=Egypt",
+            "https://api.aladhan.com/v1/calendarByCity/${DateTime.now().year}/${DateTime.now().month}?city=cairo&country=Egypt",
       );
       List<PrayerTimeModel> prayTime = [];
       for (var pray in data["data"]) {

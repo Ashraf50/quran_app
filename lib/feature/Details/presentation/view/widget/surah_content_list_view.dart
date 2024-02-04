@@ -30,7 +30,7 @@ class SurahContentListView extends StatelessWidget {
                   id: quran.array![index].id!,
                   onPressed: () {},
                   icon: Icon(
-                    Icons.bookmark,
+                    Icons.bookmark_border,
                     color: secondColor,
                   ),
                   //   if (cubit.isSelected(quran.array![index] as QuranModel)) {

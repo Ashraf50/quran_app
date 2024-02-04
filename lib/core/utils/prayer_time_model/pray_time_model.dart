@@ -2,17 +2,17 @@ import 'date.dart';
 import 'meta.dart';
 import 'timings.dart';
 
-class Datum {
+class PrayerTimeModel {
   Timings? timings;
   Date? date;
   Meta? meta;
 
-  Datum({this.timings, this.date, this.meta});
+  PrayerTimeModel({this.timings, this.date, this.meta});
 
   @override
   String toString() => 'Datum(timings: $timings, date: $date, meta: $meta)';
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory PrayerTimeModel.fromJson(Map<String, dynamic> json) => PrayerTimeModel(
         timings: json['timings'] == null
             ? null
             : Timings.fromJson(json['timings'] as Map<String, dynamic>),

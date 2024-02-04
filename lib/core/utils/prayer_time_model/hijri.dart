@@ -1,5 +1,5 @@
+import 'package:quran_app/core/utils/prayer_time_model/month_higiri.dart';
 import 'designation.dart';
-import 'month.dart';
 import 'weekday.dart';
 
 class Hijri {
@@ -7,7 +7,7 @@ class Hijri {
   String? format;
   String? day;
   Weekday? weekday;
-  Month? month;
+  MonthHijri? month;
   String? year;
   Designation? designation;
   List<dynamic>? holidays;
@@ -37,7 +37,7 @@ class Hijri {
             : Weekday.fromJson(json['weekday'] as Map<String, dynamic>),
         month: json['month'] == null
             ? null
-            : Month.fromJson(json['month'] as Map<String, dynamic>),
+            : MonthHijri.fromJson(json['month'] as Map<String, dynamic>),
         year: json['year'] as String?,
         designation: json['designation'] == null
             ? null

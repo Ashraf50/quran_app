@@ -1,7 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/constant/theme_mode.dart';
+import 'package:quran_app/core/repos/repo_impl.dart';
+import 'package:quran_app/core/utils/api_services.dart';
+import 'package:quran_app/feature/PrayerTime/data/cubit/get_all_paray_time_cubit.dart';
 import 'package:quran_app/feature/menu.dart/data/cubit/book_marks_cubit.dart';
 import 'package:quran_app/feature/splash/presentation/view/splash_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -26,6 +30,11 @@ class MyApp extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return MultiProvider(
       providers: [
+        BlocProvider(
+          create: (context) =>
+              GetAllPrayTimeCubit(HomeRepoImpl(ApiServices(Dio())))
+                ..fetchAdanTime(),
+        ),
         BlocProvider(
           create: (context) => BookMarksCubit(),
         )
