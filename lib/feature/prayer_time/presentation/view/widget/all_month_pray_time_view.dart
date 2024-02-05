@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_app_bar.dart';
-import 'package:quran_app/feature/PrayerTime/presentation/view/widget/pray_time_list_view.dart';
+import 'package:quran_app/feature/prayer_time/presentation/view/widget/pray_time_list_view.dart';
 
 class AllMonthPrayTimeView extends StatelessWidget {
   const AllMonthPrayTimeView({super.key});
