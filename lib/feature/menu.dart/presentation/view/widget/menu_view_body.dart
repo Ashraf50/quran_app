@@ -22,11 +22,9 @@ class MenuViewBody extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            CustomAppBar(
+            const CustomAppBar(
               title: "Settings",
-              rightIcon: Icons.search,
               leftIcon: Icons.sort,
-              rightIconOnTap: () {},
             ),
             CustomListTile(
               title: "Add new collection",
@@ -36,7 +34,7 @@ class MenuViewBody extends StatelessWidget {
             ),
             CustomListTile(
               onTap: () {
-                Get.to(const BookMarksListView());
+                Get.to(() => const BookMarksListView());
               },
               title: "My Favorite",
               leftIcon: FontAwesomeIcons.folder,

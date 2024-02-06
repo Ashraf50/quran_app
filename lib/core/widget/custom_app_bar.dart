@@ -8,16 +8,14 @@ class CustomAppBar extends StatelessWidget {
   final IconData? leftIcon;
   final void Function()? leftIconOnTap;
   final void Function()? rightIconOnTap;
-
   const CustomAppBar({
     super.key,
     required this.title,
-    required this.rightIcon,
-    required this.leftIcon,
+    this.rightIcon,
+    this.leftIcon,
     this.leftIconOnTap,
-    required this.rightIconOnTap,
+    this.rightIconOnTap,
   });
-
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
