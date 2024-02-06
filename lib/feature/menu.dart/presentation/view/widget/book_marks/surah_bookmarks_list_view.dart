@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
 import 'package:quran_app/core/constant/colors.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
 import 'package:quran_app/core/widget/show_snack_bar.dart';
 import 'package:quran_app/feature/Details/presentation/view/widget/surah_content.dart';
-import 'package:quran_app/feature/Details/presentation/view/widget/surah_content_list_view.dart';
 import 'package:quran_app/feature/Details/presentation/view_model/surah_bookmarks_cubit/surah_bookmarks_cubit.dart';
 import 'package:quran_app/feature/menu.dart/presentation/view/widget/book_marks/warning_message.dart';
 
