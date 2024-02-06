@@ -36,7 +36,7 @@ class MenuViewBody extends StatelessWidget {
               onTap: () {
                 Get.to(() => const BookMarksListView());
               },
-              title: "My Favorite",
+              title: "Bookmarks",
               leftIcon: FontAwesomeIcons.folder,
               rightIcon: Icons.more_vert_outlined,
             ),

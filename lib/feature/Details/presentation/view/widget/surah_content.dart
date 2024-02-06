@@ -4,22 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/constant/colors.dart';
 import 'package:quran_app/core/constant/theme_mode.dart';
+import 'package:quran_app/core/utils/quran_model/array.dart';
 import 'package:quran_app/feature/Details/presentation/view/widget/ayah_verses.dart';
 import 'package:share_plus/share_plus.dart';
 
 class SurahContent extends StatefulWidget {
+  final Array surah;
   final Widget icon;
   final Function() onPressed;
-  final String surahText;
-  final String path;
-  final int id;
   const SurahContent({
     super.key,
     required this.icon,
     required this.onPressed,
-    required this.surahText,
-    required this.path,
-    required this.id,
+    required this.surah,
   });
 
   @override
@@ -46,13 +43,13 @@ class _SurahContentState extends State<SurahContent> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 10),
-                child: AyahVerses(ayahVerses: widget.id),
+                child: AyahVerses(ayahVerses: widget.surah.id!),
               ),
               Row(
                 children: [
                   IconButton(
                     onPressed: () {
-                      Share.share(widget.surahText);
+                      Share.share(widget.surah.ar!);
                     },
                     icon: Icon(
                       Icons.share_outlined,
@@ -76,7 +73,7 @@ class _SurahContentState extends State<SurahContent> {
                       : IconButton(
                           onPressed: () {
                             setState(() {
-                              player.play(AssetSource(widget.path));
+                              player.play(AssetSource(widget.surah.path!));
                               isPlaying = true;
                             });
                           },
@@ -103,7 +100,7 @@ class _SurahContentState extends State<SurahContent> {
           child: Directionality(
             textDirection: TextDirection.rtl,
             child: Text(
-              widget.surahText,
+              widget.surah.ar!,
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,

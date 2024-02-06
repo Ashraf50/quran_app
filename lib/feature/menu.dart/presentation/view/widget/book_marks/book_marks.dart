@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
+import 'package:quran_app/core/constant/text_style.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
-import 'package:quran_app/feature/menu.dart/data/cubit/book_marks_cubit.dart';
+import 'package:quran_app/feature/menu.dart/presentation/view/widget/book_marks/azkar_bookmarks_list_view.dart';
+import 'package:quran_app/feature/menu.dart/presentation/view/widget/book_marks/surah_bookmarks_list_view.dart';
 
 class BookMarksListView extends StatelessWidget {
   const BookMarksListView({super.key});
@@ -16,36 +18,69 @@ class BookMarksListView extends StatelessWidget {
               height: 20,
             ),
             CustomAppBar(
-              title: "BookMarks",
+              title: "My BookMarks",
               rightIcon: Icons.bookmark,
               leftIcon: Icons.arrow_back,
               leftIconOnTap: () {
                 Navigator.pop(context);
               },
-              rightIconOnTap: () {},
             ),
-            BlocBuilder<BookMarksCubit, BookMarksState>(
-              builder: (context, state) {
-                var cubit = BookMarksCubit();
-                return ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: cubit.selectedBooKMarks.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return Text("data");
-
-                    // SurahContent(
-
-                    //   surahText: cubit.selectedBooKMarks[index],
-                    //   icon: const Icon(Icons.bookmark_remove_rounded),
-                    //   onPressed: () {
-                    //     cubit.delete(cubit.selectedBooKMarks[index]);
-                    //   },
-                    // );
-                  },
+            CustomWidget(
+              title: "Ayah BookMarks",
+              onTap: () {
+                Get.to(
+                  () => const SurahBookmarksListView(),
                 );
               },
             ),
+            CustomWidget(
+              title: "Azkar BookMarks",
+              onTap: () {
+                Get.to(
+                  () => const AzkarBookmarksListView(),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomWidget extends StatelessWidget {
+  final String title;
+  final void Function() onTap;
+  const CustomWidget({
+    super.key,
+    required this.title,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: Styles.textStyle19,
+                ),
+                const Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  color: Colors.grey,
+                )
+              ],
+            ),
+            const Divider(
+              color: Colors.grey,
+            )
           ],
         ),
       ),

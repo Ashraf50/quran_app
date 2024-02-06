@@ -4,16 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/constant/colors.dart';
 import 'package:quran_app/core/constant/theme_mode.dart';
+import 'package:quran_app/core/utils/adhkar_model/array.dart';
 import 'package:quran_app/core/widget/show_snack_bar.dart';
 import 'package:share_plus/share_plus.dart';
 
 class AzkarWidget extends StatefulWidget {
-  final String text;
-  final String audio;
+  final Array azkar;
+  final Widget icon;
+  final Function() onPressed;
   const AzkarWidget({
     super.key,
-    required this.text,
-    required this.audio,
+    required this.icon,
+    required this.onPressed,
+    required this.azkar,
   });
 
   @override
@@ -58,7 +61,7 @@ class _AzkarWidgetState extends State<AzkarWidget> {
                     : IconButton(
                         onPressed: () {
                           setState(() {
-                            player.play(AssetSource(widget.audio));
+                            player.play(AssetSource(widget.azkar.audio!));
                             isPlaying = true;
                           });
                         },
@@ -70,7 +73,7 @@ class _AzkarWidgetState extends State<AzkarWidget> {
                       ),
                 IconButton(
                   onPressed: () {
-                    Share.share(widget.text);
+                    Share.share(widget.azkar.text!);
                   },
                   icon: Icon(
                     Icons.share,
@@ -79,7 +82,7 @@ class _AzkarWidgetState extends State<AzkarWidget> {
                 ),
                 IconButton(
                   onPressed: () {
-                    FlutterClipboard.copy(widget.text).then(
+                    FlutterClipboard.copy(widget.azkar.text!).then(
                       (value) => showSnackBar(context, "copied", Icons.copy),
                     );
                   },
@@ -89,11 +92,9 @@ class _AzkarWidgetState extends State<AzkarWidget> {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.bookmark_border,
-                    color: secondColor,
-                  ),
+                  onPressed: widget.onPressed,
+                  icon: widget.icon,
+                  color: secondColor,
                 )
               ],
             ),
@@ -106,7 +107,7 @@ class _AzkarWidgetState extends State<AzkarWidget> {
             child: Directionality(
               textDirection: TextDirection.rtl,
               child: Text(
-                widget.text,
+                widget.azkar.text!,
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -114,8 +115,12 @@ class _AzkarWidgetState extends State<AzkarWidget> {
               ),
             ),
           ),
+          const SizedBox(height: 10,),
+          const Divider(
+            color: Colors.grey,
+          ),
           const SizedBox(
-            height: 24,
+            height: 10,
           ),
         ],
       ),
