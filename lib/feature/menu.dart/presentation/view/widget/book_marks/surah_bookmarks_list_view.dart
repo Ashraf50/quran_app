@@ -44,26 +44,20 @@ class SurahBookmarksListView extends StatelessWidget {
                           itemCount: cubit.selectedBooKMarks.length,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
-                            return InkWell(
-                              onTap: () {
-                                Get.to(() => SurahContentListView(
-                                    quran: cubit.selectedBooKMarks[index]));
-                              },
-                              child: SurahContent(
-                                surah: cubit.selectedBooKMarks[index],
-                                icon: Icon(
-                                  Icons.bookmark_remove_rounded,
-                                  color: secondColor,
-                                ),
-                                onPressed: () {
-                                  cubit.delete(cubit.selectedBooKMarks[index]);
-                                  showSnackBar(
-                                    context,
-                                    "Ayah removed from your Bookmarks",
-                                    Icons.check_circle,
-                                  );
-                                },
+                            return SurahContent(
+                              surah: cubit.selectedBooKMarks[index],
+                              icon: Icon(
+                                Icons.bookmark_remove_rounded,
+                                color: secondColor,
                               ),
+                              onPressed: () {
+                                cubit.delete(cubit.selectedBooKMarks[index]);
+                                showSnackBar(
+                                  context,
+                                  "Ayah removed from your Bookmarks",
+                                  Icons.check_circle,
+                                );
+                              },
                             );
                           },
                         ),
