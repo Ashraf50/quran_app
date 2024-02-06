@@ -115,7 +115,9 @@ class _AzkarWidgetState extends State<AzkarWidget> {
               ),
             ),
           ),
-          const SizedBox(height: 10,),
+          const SizedBox(
+            height: 10,
+          ),
           const Divider(
             color: Colors.grey,
           ),
