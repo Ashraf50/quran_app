@@ -16,7 +16,7 @@ Seamlessly switch between dark mode and light mode to suit your preference.
 Built using Flutter for a smooth cross-platform experience, with integration of RESTful APIs for up-to-date information retrieval. Employing clean architecture principles, including MVVM design pattern, ensures maintainability and scalability of the application. State management is efficiently handled with the BLoC (Business Logic Component) pattern.
 
 Embark on a digital journey of spiritual enlightenment with Quran Companion – your ultimate companion in the exploration of the Quranic verses and prayers. Download now and elevate your spiritual experience!
-
+- [LinkedIn view](https://www.linkedin.com/posts/ashraf-essam-06ab93227_flutter-flutterdeveloper-flutterapp-activity-7160977082083094528-VT-b?utm_source=share&utm_medium=member_desktop)
 A few resources to get you started if this is your first Flutter project:
 - [UI design inspire](https://www.figma.com/file/u3K92tdW0xaWuXs8o5zhat/Quran-App-Concept---Free-(Community)?type=design&node-id=75%3A441&mode=design&t=jJD94rmIZYf2f1fI-1)
 - [Api For Quran](https://alquran.cloud/api)
