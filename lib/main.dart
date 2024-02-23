@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,10 @@ void main() async {
   runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeProvider(isDarkTheme: storedValue),
-      child: const MyApp(),
+      child: DevicePreview(
+        enabled: true,
+        builder: (context) => const MyApp(), // Wrap your app
+      ),
     ),
   );
 }
@@ -48,6 +52,9 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: GetMaterialApp(
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
         theme: themeProvider.getThemeData,
         debugShowCheckedModeBanner: false,
         home: const SplashView(),
