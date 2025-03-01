@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quran_app/core/theme/text_style.dart';
+import 'package:quran_app/feature/Home/data/save_last_read.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/loading.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/surah_widget.dart';
 import 'package:quran_app/feature/Home/presentation/view_model/cubit/fetch_surah_cubit.dart';
@@ -30,6 +31,7 @@ class SurahListView extends StatelessWidget {
                     '/details_view',
                     extra: state.surah[index],
                   );
+                  saveLastRead(surah: state.surah[index].englishName!);
                 },
                 child: SurahWidget(quran: state.surah[index]),
               );
