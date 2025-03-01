@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran_app/core/utils/adhkar_model/adhkar_model.dart';
+import 'package:quran_app/core/utils/azkar_model/azkar_model.dart';
 import 'package:quran_app/core/widget/show_snack_bar.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_widget.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view_model/azkar_bookmarks_cubit/azkar_book_marks_cubit.dart';
 
 class AzkarContentListView extends StatelessWidget {
-  final AdhkarModel azkar;
+  final AzkarModel azkar;
   const AzkarContentListView({super.key, required this.azkar});
 
   @override

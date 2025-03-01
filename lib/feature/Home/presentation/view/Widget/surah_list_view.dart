@@ -1,40 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:quran_app/feature/Details/presentation/view/details_view.dart';
-import 'package:quran_app/feature/Home/data/get_all_quran.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:quran_app/core/theme/text_style.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/loading.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/surah_widget.dart';
+import 'package:quran_app/feature/Home/presentation/view_model/cubit/fetch_surah_cubit.dart';
 
 class SurahListView extends StatelessWidget {
   const SurahListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: getAllQuran(),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
+    return BlocBuilder<FetchSurahCubit, FetchSurahState>(
+      builder: (context, state) {
+        if (state is FetchSurahLoading) {
+          return Loading();
+        } else if (state is FetchSurahSuccess) {
           return ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: snapshot.data!.length,
+            itemCount: state.surah.length,
             itemBuilder: (context, index) {
               return InkWell(
-                borderRadius: BorderRadius.circular(10),
-                mouseCursor: MaterialStateMouseCursor.clickable,
+                focusColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
                 onTap: () {
-                  Get.to(() => DetailsView(
-                        quran: snapshot.data![index],
-                      ));
+                  context.push(
+                    '/details_view',
+                    extra: state.surah[index],
+                  );
                 },
-                child: SurahWidget(quran: snapshot.data![index]),
+                child: SurahWidget(quran: state.surah[index]),
               );
             },
           );
-        } else if (snapshot.hasError) {
-          return Center(child: Text(snapshot.error.toString()));
+        } else if (state is FetchSurahFailure) {
+          return Center(
+            child: Text(state.errMessage, style: Styles.textStyle18),
+          );
         } else {
-          return const Loading();
+          return SizedBox();
         }
       },
     );

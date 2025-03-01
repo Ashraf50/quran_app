@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/constant/text_style.dart';
+import 'package:quran_app/core/theme/text_style.dart';
 import 'package:quran_app/core/utils/prayer_time_model/pray_time_model.dart';
 
 class AllMonthWidget extends StatelessWidget {

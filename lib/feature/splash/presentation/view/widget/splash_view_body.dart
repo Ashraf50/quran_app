@@ -1,24 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/core/constant/theme_mode.dart';
-import 'package:quran_app/core/widget/bottom_bar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:quran_app/core/theme/theme_mode.dart';
 
-class SplashViewBody extends StatelessWidget {
+class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
+
+  @override
+  SplashViewBodyState createState() => SplashViewBodyState();
+}
+
+class SplashViewBodyState extends State<SplashViewBody> {
+  @override
+  void initState() {
+    super.initState();
+    _checkFirstLaunch();
+  }
+
+  Future<void> _checkFirstLaunch() async {
+    final prefs = await SharedPreferences.getInstance();
+    bool hasSeenSplash = prefs.getBool('hasSeenSplash') ?? false;
+    if (hasSeenSplash) {
+      context.go('/bottom_bar');
+    }
+  }
+
+  Future<void> _completeSplashScreen() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('hasSeenSplash', true);
+    context.go('/bottom_bar');
+  }
 
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
-
     return SafeArea(
       child: Scaffold(
         body: Center(
           child: Column(
             children: [
-              const SizedBox(
-                height: 86,
-              ),
+              const SizedBox(height: 86),
               Text(
                 "Quran App",
                 style: TextStyle(
@@ -29,9 +51,7 @@ class SplashViewBody extends StatelessWidget {
                       : const Color(0xff672CBC),
                 ),
               ),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
               const Text(
                 textAlign: TextAlign.center,
                 "Learn Quran and\n Recite once everyday",
@@ -40,9 +60,7 @@ class SplashViewBody extends StatelessWidget {
                   color: Color(0xff8789A3),
                 ),
               ),
-              const SizedBox(
-                height: 49,
-              ),
+              const SizedBox(height: 49),
               Stack(
                 children: [
                   Image.asset(
@@ -54,11 +72,9 @@ class SplashViewBody extends StatelessWidget {
                     left: 110,
                     right: 110,
                     child: ElevatedButton(
-                      onPressed: () {
-                        Get.to(() => const BottomBar());
-                      },
+                      onPressed: _completeSplashScreen,
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
+                        backgroundColor: WidgetStateProperty.all(
                           const Color(0xffF9B091),
                         ),
                       ),

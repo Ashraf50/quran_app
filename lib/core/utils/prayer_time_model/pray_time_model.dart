@@ -12,7 +12,8 @@ class PrayerTimeModel {
   @override
   String toString() => 'Datum(timings: $timings, date: $date, meta: $meta)';
 
-  factory PrayerTimeModel.fromJson(Map<String, dynamic> json) => PrayerTimeModel(
+  factory PrayerTimeModel.fromJson(Map<String, dynamic> json) =>
+      PrayerTimeModel(
         timings: json['timings'] == null
             ? null
             : Timings.fromJson(json['timings'] as Map<String, dynamic>),

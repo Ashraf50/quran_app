@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:quran_app/core/constant/text_style.dart';
+import 'package:quran_app/core/theme/text_style.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_list_view.dart';
 

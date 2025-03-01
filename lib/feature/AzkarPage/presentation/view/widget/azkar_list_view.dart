@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quran_app/feature/AzkarPage/data/json_data.dart';
-import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_content_view.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view/widget/custom_list_tile.dart';
 
 class AzkarListView extends StatelessWidget {
@@ -23,9 +22,8 @@ class AzkarListView extends StatelessWidget {
                       title: snapshot.data![index].category!,
                       id: snapshot.data![index].id!,
                       onTap: () {
-                        Get.to(() => AzkarContentView(
-                              azkar: snapshot.data![index],
-                            ));
+                        context.push('/azkar_view',
+                            extra: snapshot.data![index]);
                       },
                     );
                   }),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran_app/core/constant/colors.dart';
+import 'package:quran_app/core/theme/colors.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
 import 'package:quran_app/core/widget/show_snack_bar.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_widget.dart';

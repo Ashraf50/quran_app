@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran_app/core/constant/colors.dart';
+import 'package:quran_app/core/theme/colors.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
 import 'package:quran_app/core/widget/show_snack_bar.dart';
-import 'package:quran_app/feature/Details/presentation/view/widget/surah_content.dart';
-import 'package:quran_app/feature/Details/presentation/view_model/surah_bookmarks_cubit/surah_bookmarks_cubit.dart';
+import 'package:quran_app/feature/Home/presentation/view/Widget/surah_content.dart';
+import 'package:quran_app/feature/Home/presentation/view_model/surah_bookmarks_cubit/surah_bookmarks_cubit.dart';
 import 'package:quran_app/feature/menu.dart/presentation/view/widget/book_marks/warning_message.dart';
 
 class SurahBookmarksListView extends StatelessWidget {
@@ -43,7 +43,7 @@ class SurahBookmarksListView extends StatelessWidget {
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return SurahContent(
-                              surah: cubit.selectedBooKMarks[index],
+                              ayah: cubit.selectedBooKMarks[index],
                               icon: Icon(
                                 Icons.bookmark_remove_rounded,
                                 color: secondColor,

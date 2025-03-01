@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/constant/colors.dart';
-import 'package:quran_app/core/constant/text_style.dart';
+import 'package:quran_app/core/theme/colors.dart';
+import 'package:quran_app/core/theme/text_style.dart';
 
 class TextFieldSearch extends StatelessWidget {
   final TextEditingController searchController;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/core/constant/colors.dart';
-import 'package:quran_app/core/constant/text_style.dart';
-import 'package:quran_app/core/constant/theme_mode.dart';
+import 'package:quran_app/core/theme/colors.dart';
+import 'package:quran_app/core/theme/text_style.dart';
+import 'package:quran_app/core/theme/theme_mode.dart';
 import 'package:quran_app/core/utils/prayer_time_model/pray_time_model.dart';
 import 'package:quran_app/core/widget/conver_date.dart';
 

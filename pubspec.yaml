@@ -31,26 +31,25 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  get: ^4.6.6
   font_awesome_flutter: ^10.6.0
+  go_router: ^14.8.1
   curved_navigation_bar: ^1.0.3
-  flutter_bloc: ^8.1.3
+  flutter_bloc: ^9.0.0
   provider: ^6.1.1
   shared_preferences: ^2.2.2
   dio: ^5.4.0
   dartz: ^0.10.1
   shimmer: ^3.0.0
-  share_plus: ^7.2.1
-  audioplayers: ^5.2.1
+  share_plus: ^10.1.4
+  audioplayers: ^6.2.0
   lottie: ^3.0.0
   clipboard: ^0.1.3
-  intl: ^0.18.1
-  rename: ^2.1.1
-  flutter_lints: ^3.0.1
-  device_preview: ^1.1.0
+  intl: ^0.20.2
+  flutter_lints: ^5.0.0
+  flutter_native_splash: ^2.4.4
 
 dev_dependencies:
-  flutter_launcher_icons: "^0.13.1"
+  flutter_launcher_icons: ^0.14.3
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
@@ -79,122 +78,6 @@ flutter:
     - assets/img/
     - assets/Adhkar_json/
     - assets/Adhkar_json/audio/
-    - assets/Quran_json/
-    - assets/Quran_json/audio/001/
-    - assets/Quran_json/audio/002/
-    - assets/Quran_json/audio/003/
-    - assets/Quran_json/audio/004/
-    - assets/Quran_json/audio/005/
-    - assets/Quran_json/audio/006/
-    - assets/Quran_json/audio/007/
-    - assets/Quran_json/audio/008/
-    - assets/Quran_json/audio/009/
-    - assets/Quran_json/audio/010/
-    - assets/Quran_json/audio/011/
-    - assets/Quran_json/audio/012/
-    - assets/Quran_json/audio/013/
-    - assets/Quran_json/audio/014/
-    - assets/Quran_json/audio/015/
-    - assets/Quran_json/audio/016/
-    - assets/Quran_json/audio/017/
-    - assets/Quran_json/audio/018/
-    - assets/Quran_json/audio/019/
-    - assets/Quran_json/audio/020/
-    - assets/Quran_json/audio/021/
-    - assets/Quran_json/audio/022/
-    - assets/Quran_json/audio/023/
-    - assets/Quran_json/audio/024/
-    - assets/Quran_json/audio/025/
-    - assets/Quran_json/audio/026/
-    - assets/Quran_json/audio/027/
-    - assets/Quran_json/audio/028/
-    - assets/Quran_json/audio/029/
-    - assets/Quran_json/audio/030/
-    - assets/Quran_json/audio/031/
-    - assets/Quran_json/audio/032/
-    - assets/Quran_json/audio/033/
-    - assets/Quran_json/audio/034/
-    - assets/Quran_json/audio/035/
-    - assets/Quran_json/audio/036/
-    - assets/Quran_json/audio/037/
-    - assets/Quran_json/audio/038/
-    - assets/Quran_json/audio/039/
-    - assets/Quran_json/audio/040/
-    - assets/Quran_json/audio/041/
-    - assets/Quran_json/audio/042/
-    - assets/Quran_json/audio/043/
-    - assets/Quran_json/audio/044/
-    - assets/Quran_json/audio/045/
-    - assets/Quran_json/audio/046/
-    - assets/Quran_json/audio/047/
-    - assets/Quran_json/audio/048/
-    - assets/Quran_json/audio/049/
-    - assets/Quran_json/audio/050/
-    - assets/Quran_json/audio/051/
-    - assets/Quran_json/audio/052/
-    - assets/Quran_json/audio/053/
-    - assets/Quran_json/audio/054/
-    - assets/Quran_json/audio/055/
-    - assets/Quran_json/audio/056/
-    - assets/Quran_json/audio/057/
-    - assets/Quran_json/audio/058/
-    - assets/Quran_json/audio/059/
-    - assets/Quran_json/audio/060/
-    - assets/Quran_json/audio/061/
-    - assets/Quran_json/audio/062/
-    - assets/Quran_json/audio/063/
-    - assets/Quran_json/audio/064/
-    - assets/Quran_json/audio/065/
-    - assets/Quran_json/audio/066/
-    - assets/Quran_json/audio/067/
-    - assets/Quran_json/audio/068/
-    - assets/Quran_json/audio/069/
-    - assets/Quran_json/audio/070/
-    - assets/Quran_json/audio/071/
-    - assets/Quran_json/audio/072/
-    - assets/Quran_json/audio/073/
-    - assets/Quran_json/audio/074/
-    - assets/Quran_json/audio/075/
-    - assets/Quran_json/audio/076/
-    - assets/Quran_json/audio/077/
-    - assets/Quran_json/audio/078/
-    - assets/Quran_json/audio/079/
-    - assets/Quran_json/audio/080/
-    - assets/Quran_json/audio/081/
-    - assets/Quran_json/audio/082/
-    - assets/Quran_json/audio/083/
-    - assets/Quran_json/audio/084/
-    - assets/Quran_json/audio/085/
-    - assets/Quran_json/audio/086/
-    - assets/Quran_json/audio/087/
-    - assets/Quran_json/audio/088/
-    - assets/Quran_json/audio/089/
-    - assets/Quran_json/audio/090/
-    - assets/Quran_json/audio/091/
-    - assets/Quran_json/audio/092/
-    - assets/Quran_json/audio/093/
-    - assets/Quran_json/audio/094/
-    - assets/Quran_json/audio/095/
-    - assets/Quran_json/audio/096/
-    - assets/Quran_json/audio/097/
-    - assets/Quran_json/audio/098/
-    - assets/Quran_json/audio/099/
-    - assets/Quran_json/audio/100/
-    - assets/Quran_json/audio/101/
-    - assets/Quran_json/audio/102/
-    - assets/Quran_json/audio/103/
-    - assets/Quran_json/audio/104/
-    - assets/Quran_json/audio/105/
-    - assets/Quran_json/audio/106/
-    - assets/Quran_json/audio/107/
-    - assets/Quran_json/audio/108/
-    - assets/Quran_json/audio/109/
-    - assets/Quran_json/audio/110/
-    - assets/Quran_json/audio/111/
-    - assets/Quran_json/audio/112/
-    - assets/Quran_json/audio/113/
-    - assets/Quran_json/audio/114/
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

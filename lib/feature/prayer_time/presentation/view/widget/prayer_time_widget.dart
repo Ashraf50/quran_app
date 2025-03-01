@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/core/constant/colors.dart';
-import 'package:quran_app/core/constant/text_style.dart';
-import 'package:quran_app/core/constant/theme_mode.dart';
+import 'package:quran_app/core/theme/colors.dart';
+import 'package:quran_app/core/theme/text_style.dart';
+import 'package:quran_app/core/theme/theme_mode.dart';
 import 'package:quran_app/core/widget/conver_date.dart';
-import 'package:quran_app/feature/prayer_time/data/cubit/get_all_paray_time_cubit.dart';
+import 'package:quran_app/feature/prayer_time/presentation/view_model/cubit/get_all_pray_time_cubit.dart';
 
 class PrayerTimeWidget extends StatelessWidget {
   const PrayerTimeWidget({super.key});

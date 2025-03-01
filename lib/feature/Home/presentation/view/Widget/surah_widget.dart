@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/core/constant/text_style.dart';
-import 'package:quran_app/core/constant/theme_mode.dart';
-import 'package:quran_app/core/utils/quran_model/quran_model.dart';
+import 'package:quran_app/core/theme/text_style.dart';
+import 'package:quran_app/core/theme/theme_mode.dart';
+import 'package:quran_app/feature/Home/data/model/surah_model/surah_model.dart';
 
 class SurahWidget extends StatelessWidget {
-  final QuranModel quran;
+  final SurahModel quran;
   const SurahWidget({
     super.key,
     required this.quran,
@@ -38,7 +38,7 @@ class SurahWidget extends StatelessWidget {
                     child: Center(
                       child: Text(
                         textAlign: TextAlign.center,
-                        quran.id.toString(),
+                        quran.number.toString(),
                         style: TextStyle(
                           fontSize: 14,
                           color: themeProvider.isDarkTheme
@@ -55,17 +55,17 @@ class SurahWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        quran.nameTranslation!,
+                        quran.englishName!,
                         style: Styles.textStyle16,
                       ),
                       Row(
                         children: [
                           Text(
-                            quran.typeEn!,
+                            quran.revelationType!,
                             style: Styles.textStyle12,
                           ),
                           Text(
-                            "- ${quran.array!.length} verses",
+                            "- ${quran.numberOfAyahs} verses",
                             style: Styles.textStyle12,
                           ),
                         ],

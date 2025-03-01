@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:quran_app/core/constant/text_style.dart';
+import 'package:quran_app/core/theme/text_style.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
-import 'package:quran_app/feature/prayer_time/presentation/view/widget/all_month_pray_time_view.dart';
 import 'package:quran_app/feature/prayer_time/presentation/view/widget/all_month_time_list_view.dart';
 import 'package:quran_app/feature/prayer_time/presentation/view/widget/prayer_time_widget.dart';
 
@@ -26,7 +25,7 @@ class PrayerTimeViewBody extends StatelessWidget {
               rightIcon: Icons.calendar_month,
               leftIcon: Icons.sort,
               rightIconOnTap: () {
-                Get.to(() => const AllMonthPrayTimeView());
+                context.push('/all_month_pray');
               },
             ),
             Padding(

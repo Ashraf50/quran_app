@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:quran_app/core/constant/text_style.dart';
+import 'package:quran_app/core/theme/text_style.dart';
 
 class LastReadWidget extends StatelessWidget {
   const LastReadWidget({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view/widget/loading_shimmer.dart';
-import 'package:quran_app/feature/prayer_time/data/cubit/get_all_paray_time_cubit.dart';
+import 'package:quran_app/feature/prayer_time/presentation/view_model/cubit/get_all_pray_time_cubit.dart';
 import 'package:quran_app/feature/prayer_time/presentation/view/widget/pray_time_widget.dart';
 
 class PrayTimeListView extends StatelessWidget {

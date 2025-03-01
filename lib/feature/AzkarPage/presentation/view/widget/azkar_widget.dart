@@ -2,9 +2,9 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/core/constant/colors.dart';
-import 'package:quran_app/core/constant/theme_mode.dart';
-import 'package:quran_app/core/utils/adhkar_model/array.dart';
+import 'package:quran_app/core/theme/colors.dart';
+import 'package:quran_app/core/theme/theme_mode.dart';
+import 'package:quran_app/core/utils/azkar_model/array.dart';
 import 'package:quran_app/core/widget/show_snack_bar.dart';
 import 'package:share_plus/share_plus.dart';
 

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:quran_app/core/constant/text_style.dart';
+import 'package:go_router/go_router.dart';
+import 'package:quran_app/core/theme/text_style.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
-import 'package:quran_app/feature/menu.dart/presentation/view/widget/book_marks/azkar_bookmarks_list_view.dart';
-import 'package:quran_app/feature/menu.dart/presentation/view/widget/book_marks/surah_bookmarks_list_view.dart';
 
 class BookMarksListView extends StatelessWidget {
   const BookMarksListView({super.key});
@@ -28,17 +26,13 @@ class BookMarksListView extends StatelessWidget {
             CustomWidget(
               title: "Ayah BookMarks",
               onTap: () {
-                Get.to(
-                  () => const SurahBookmarksListView(),
-                );
+                context.push('/surah_bookmarks');
               },
             ),
             CustomWidget(
               title: "Azkar BookMarks",
               onTap: () {
-                Get.to(
-                  () => const AzkarBookmarksListView(),
-                );
+                context.push('/azkar_bookmarks');
               },
             ),
           ],
