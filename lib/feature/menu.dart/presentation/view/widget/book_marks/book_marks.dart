@@ -2,41 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quran_app/core/theme/text_style.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
+import 'package:quran_app/core/widget/custom_scaffold.dart';
 
 class BookMarksListView extends StatelessWidget {
   const BookMarksListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: ListView(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            CustomAppBar(
-              title: "My BookMarks",
-              rightIcon: Icons.bookmark,
-              leftIcon: Icons.arrow_back,
-              leftIconOnTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            CustomWidget(
-              title: "Ayah BookMarks",
-              onTap: () {
-                context.push('/surah_bookmarks');
-              },
-            ),
-            CustomWidget(
-              title: "Azkar BookMarks",
-              onTap: () {
-                context.push('/azkar_bookmarks');
-              },
-            ),
-          ],
-        ),
+    return CustomScaffold(
+      body: ListView(
+        children: [
+          const SizedBox(
+            height: 20,
+          ),
+          CustomAppBar(
+            title: "My BookMarks",
+          ),
+          CustomWidget(
+            title: "Ayah BookMarks",
+            onTap: () {
+              context.push('/surah_bookmarks');
+            },
+          ),
+          CustomWidget(
+            title: "Azkar BookMarks",
+            onTap: () {
+              context.push('/azkar_bookmarks');
+            },
+          ),
+        ],
       ),
     );
   }

@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quran_app/core/theme/text_style.dart';
-import 'package:quran_app/feature/Home/data/save_last_read.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/loading.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/surah_widget.dart';
 import 'package:quran_app/feature/Home/presentation/view_model/cubit/fetch_surah_cubit.dart';
 
-class SurahListView extends StatelessWidget {
-  const SurahListView({
-    super.key,
-  });
+class RadioListView extends StatelessWidget {
+  const RadioListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +27,9 @@ class SurahListView extends StatelessWidget {
                 splashColor: Colors.transparent,
                 onTap: () {
                   context.push(
-                    '/details_view',
-                    extra: state.surah[index],
+                    '/radio_details',
+                    extra: state.surah[index].id,
                   );
-                  saveLastRead(surah: state.surah[index].nameTranslation!);
                 },
                 child: SurahWidget(quran: state.surah[index]),
               );

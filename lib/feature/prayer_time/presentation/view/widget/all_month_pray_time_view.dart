@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/core/widget/custom_scaffold.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_app_bar.dart';
 import 'package:quran_app/feature/prayer_time/presentation/view/widget/pray_time_list_view.dart';
 
@@ -7,8 +8,7 @@ class AllMonthPrayTimeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return CustomScaffold(
       body: ListView(
         children: [
           const SizedBox(
@@ -27,6 +27,6 @@ class AllMonthPrayTimeView extends StatelessWidget {
           ),
         ],
       ),
-    ));
+    );
   }
 }

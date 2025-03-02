@@ -3,6 +3,7 @@ import 'package:quran_app/feature/AzkarPage/data/model/azkar_model/azkar_model.d
 import 'package:quran_app/core/widget/bottom_bar.dart';
 import 'package:quran_app/feature/Home/data/model/quran_model/quran_model.dart';
 import 'package:quran_app/feature/Home/presentation/view/details_view.dart';
+import 'package:quran_app/feature/radio/presentation/view/radio_details_view.dart';
 import 'package:quran_app/feature/search/presentation/view/search_view.dart';
 import 'package:quran_app/feature/splash/presentation/view/splash_view.dart';
 import '../../feature/AzkarPage/presentation/view/widget/azkar_content_view.dart';
@@ -53,6 +54,14 @@ class AppRouter {
             final surah = state.extra as QuranModel;
             return DetailsView(
               surah: surah,
+            );
+          }),
+      GoRoute(
+          path: '/radio_details',
+          builder: (context, state) {
+            final surah = state.extra as int;
+            return RadioDetailsView(
+              surahNum: surah,
             );
           }),
       GoRoute(

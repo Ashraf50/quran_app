@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:quran_app/core/theme/text_style.dart';
 import 'package:quran_app/core/widget/custom_app_bar.dart';
+import 'package:quran_app/core/widget/custom_scaffold.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_list_view.dart';
 
 class AzkarViewBody extends StatelessWidget {
@@ -9,8 +10,7 @@ class AzkarViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return CustomScaffold(
       body: ListView(
         children: [
           const SizedBox(
@@ -18,9 +18,6 @@ class AzkarViewBody extends StatelessWidget {
           ),
           CustomAppBar(
             title: "Azkar",
-            rightIcon: Icons.search,
-            leftIcon: Icons.sort,
-            rightIconOnTap: () {},
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -59,6 +56,6 @@ class AzkarViewBody extends StatelessWidget {
           const AzkarListView(),
         ],
       ),
-    ));
+    );
   }
 }

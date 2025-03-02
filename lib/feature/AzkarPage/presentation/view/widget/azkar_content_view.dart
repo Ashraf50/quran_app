@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/core/widget/custom_scaffold.dart';
 import 'package:quran_app/feature/AzkarPage/data/model/azkar_model/azkar_model.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_app_bar.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_content_list_view.dart';
@@ -11,8 +12,7 @@ class AzkarContentView extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return CustomScaffold(
       body: ListView(
         children: [
           const SizedBox(
@@ -31,6 +31,6 @@ class AzkarContentView extends StatelessWidget {
           AzkarContentListView(azkar: azkar),
         ],
       ),
-    ));
+    );
   }
 }
