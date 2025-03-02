@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/theme/text_style.dart';
-import 'package:quran_app/feature/Home/data/model/surah_model/surah_model.dart';
+import 'package:quran_app/feature/Home/data/model/quran_model/quran_model.dart';
 
 class SurahDetailsWidget extends StatelessWidget {
-  final SurahModel surah;
+  final QuranModel surah;
   const SurahDetailsWidget({
     super.key,
     required this.surah,
@@ -22,11 +22,11 @@ class SurahDetailsWidget extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  surah.englishName!,
+                  surah.name!,
                   style: Styles.textStyle26,
                 ),
                 Text(
-                  surah.englishNameTranslation!,
+                  surah.nameTranslation!,
                   style: const TextStyle(
                     fontSize: 16,
                     color: Colors.white,
@@ -38,11 +38,11 @@ class SurahDetailsWidget extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "${surah.revelationType!} ",
+                      "${surah.typeEn!} ",
                       style: Styles.textStyle14,
                     ),
                     Text(
-                      "- ${surah.numberOfAyahs} VERSES",
+                      "- ${surah.array!.length} VERSES",
                       style: Styles.textStyle14,
                     ),
                   ],

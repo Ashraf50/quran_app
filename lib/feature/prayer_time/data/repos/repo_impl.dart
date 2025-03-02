@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:quran_app/core/error/failure.dart';
 import 'package:quran_app/core/utils/api_services.dart';
 import 'package:quran_app/feature/prayer_time/data/repos/repo.dart';
-import 'package:quran_app/core/utils/prayer_time_model/pray_time_model.dart';
+import 'package:quran_app/feature/prayer_time/data/model/prayer_time_model/pray_time_model.dart';
 
 class PrayRepoImpl implements PrayRepo {
   ApiServices apiServices = ApiServices();

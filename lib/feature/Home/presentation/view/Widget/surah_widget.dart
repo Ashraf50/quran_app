@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/theme/text_style.dart';
 import 'package:quran_app/core/theme/theme_mode.dart';
-import 'package:quran_app/feature/Home/data/model/surah_model/surah_model.dart';
+import 'package:quran_app/feature/Home/data/model/quran_model/quran_model.dart';
 
 class SurahWidget extends StatelessWidget {
-  final SurahModel quran;
+  final QuranModel quran;
   const SurahWidget({
     super.key,
     required this.quran,
@@ -28,17 +28,18 @@ class SurahWidget extends StatelessWidget {
                     width: 45,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                          scale: 1.0,
-                          opacity: 40,
-                          image: AssetImage(
-                            "assets/img/muslim.png",
-                          ),
-                          fit: BoxFit.cover),
+                        scale: 1.0,
+                        opacity: 40,
+                        image: AssetImage(
+                          "assets/img/muslim.png",
+                        ),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     child: Center(
                       child: Text(
                         textAlign: TextAlign.center,
-                        quran.number.toString(),
+                        quran.id.toString(),
                         style: TextStyle(
                           fontSize: 14,
                           color: themeProvider.isDarkTheme
@@ -55,17 +56,17 @@ class SurahWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        quran.englishName!,
+                        quran.nameTranslation!,
                         style: Styles.textStyle16,
                       ),
                       Row(
                         children: [
                           Text(
-                            quran.revelationType!,
+                            quran.typeEn!,
                             style: Styles.textStyle12,
                           ),
                           Text(
-                            "- ${quran.numberOfAyahs} verses",
+                            "- ${quran.array!.length} verses",
                             style: Styles.textStyle12,
                           ),
                         ],

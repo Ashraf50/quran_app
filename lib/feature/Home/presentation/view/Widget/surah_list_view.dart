@@ -31,7 +31,7 @@ class SurahListView extends StatelessWidget {
                     '/details_view',
                     extra: state.surah[index],
                   );
-                  saveLastRead(surah: state.surah[index].englishName!);
+                  saveLastRead(surah: state.surah[index].nameTranslation!);
                 },
                 child: SurahWidget(quran: state.surah[index]),
               );
@@ -39,7 +39,10 @@ class SurahListView extends StatelessWidget {
           );
         } else if (state is FetchSurahFailure) {
           return Center(
-            child: Text(state.errMessage, style: Styles.textStyle18),
+            child: Text(
+              state.errMessage,
+              style: Styles.textStyle18,
+            ),
           );
         } else {
           return SizedBox();

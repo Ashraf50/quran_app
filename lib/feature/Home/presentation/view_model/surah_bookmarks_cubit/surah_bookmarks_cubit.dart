@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran_app/feature/Home/data/model/surah_content_model/ayah.dart';
-
+import 'package:quran_app/feature/Home/data/model/quran_model/ayahs.dart';
 part 'surah_bookmarks_state.dart';
 
 class SurahBookmarksCubit extends Cubit<SurahBookmarksState> {
@@ -9,17 +8,17 @@ class SurahBookmarksCubit extends Cubit<SurahBookmarksState> {
 
   List selectedBooKMarks = [];
 
-  add(Ayah ayah) {
+  add(Ayahs ayah) {
     selectedBooKMarks.add(ayah);
     emit(UpdateSurahSelected());
   }
 
-  bool isSelected(Ayah ayah) {
+  bool isSelected(Ayahs ayah) {
     final isSelected = selectedBooKMarks.contains(ayah);
     return isSelected;
   }
 
-  delete(Ayah ayah) {
+  delete(Ayahs ayah) {
     selectedBooKMarks.remove(ayah);
     emit(UpdateSurahSelected());
   }

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quran_app/feature/Home/data/model/surah_model/surah_model.dart';
+import 'package:quran_app/feature/Home/data/model/quran_model/quran_model.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/surah_widget.dart';
 import 'package:quran_app/feature/search/data/search_cubit/search_cubit.dart';
 import 'package:quran_app/feature/search/presentation/view/widget/search_text_field.dart';
 
 class SearchView extends StatefulWidget {
-  final List<SurahModel> quran;
+  final List<QuranModel> quran;
   const SearchView({
     super.key,
     required this.quran,
@@ -19,7 +19,7 @@ class SearchView extends StatefulWidget {
 
 class SearchViewState extends State<SearchView> {
   final searchController = TextEditingController();
-  List<SurahModel> filteredSurah = [];
+  List<QuranModel> filteredSurah = [];
 
   @override
   void initState() {
@@ -29,7 +29,7 @@ class SearchViewState extends State<SearchView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SearchCubit, List<SurahModel>>(
+    return BlocConsumer<SearchCubit, List<QuranModel>>(
       listener: (context, state) {},
       builder: (context, search) {
         return SafeArea(
@@ -88,7 +88,7 @@ class SearchViewState extends State<SearchView> {
       filteredSurah = widget.quran
           .where((surah) =>
               (surah.name!.toLowerCase().contains(query)) ||
-              (surah.englishName!.toLowerCase().contains(query)))
+              (surah.nameTranslation!.toLowerCase().contains(query)))
           .toList();
     });
   }

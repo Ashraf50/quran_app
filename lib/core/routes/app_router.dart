@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
-import 'package:quran_app/core/utils/azkar_model/azkar_model.dart';
+import 'package:quran_app/feature/AzkarPage/data/model/azkar_model/azkar_model.dart';
 import 'package:quran_app/core/widget/bottom_bar.dart';
+import 'package:quran_app/feature/Home/data/model/quran_model/quran_model.dart';
 import 'package:quran_app/feature/Home/presentation/view/details_view.dart';
-import 'package:quran_app/feature/Home/data/model/surah_model/surah_model.dart';
 import 'package:quran_app/feature/search/presentation/view/search_view.dart';
 import 'package:quran_app/feature/splash/presentation/view/splash_view.dart';
 import '../../feature/AzkarPage/presentation/view/widget/azkar_content_view.dart';
@@ -42,7 +42,7 @@ class AppRouter {
       GoRoute(
           path: '/search_view',
           builder: (context, state) {
-            final quran = state.extra as List<SurahModel>;
+            final quran = state.extra as List<QuranModel>;
             return SearchView(
               quran: quran,
             );
@@ -50,7 +50,7 @@ class AppRouter {
       GoRoute(
           path: '/details_view',
           builder: (context, state) {
-            final surah = state.extra as SurahModel;
+            final surah = state.extra as QuranModel;
             return DetailsView(
               surah: surah,
             );

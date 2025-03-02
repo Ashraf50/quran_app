@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran_app/core/utils/azkar_model/array.dart';
+import 'package:quran_app/feature/AzkarPage/data/model/azkar_model/array.dart';
 part 'azkar_book_marks_state.dart';
 
 class AzkarBookMarksCubit extends Cubit<AzkarBookMarksState> {

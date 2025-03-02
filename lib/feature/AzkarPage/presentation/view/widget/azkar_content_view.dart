@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/utils/azkar_model/azkar_model.dart';
+import 'package:quran_app/feature/AzkarPage/data/model/azkar_model/azkar_model.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_app_bar.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view/widget/azkar_content_list_view.dart';
 

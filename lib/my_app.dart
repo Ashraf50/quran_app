@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:quran_app/core/routes/app_router.dart';
 import 'package:quran_app/feature/AzkarPage/presentation/view_model/azkar_bookmarks_cubit/azkar_book_marks_cubit.dart';
 import 'package:quran_app/feature/Home/presentation/view_model/surah_bookmarks_cubit/surah_bookmarks_cubit.dart';
-import 'package:quran_app/feature/Home/data/repo/home_repo_impl.dart';
 import 'package:quran_app/feature/Home/presentation/view_model/cubit/fetch_surah_cubit.dart';
 import 'package:quran_app/feature/prayer_time/data/repos/repo_impl.dart';
 import 'package:quran_app/feature/prayer_time/presentation/view_model/cubit/get_all_pray_time_cubit.dart';
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
           create: (context) => SurahBookmarksCubit(),
         ),
         BlocProvider(
-          create: (context) => FetchSurahCubit(HomeRepoImpl())..fetchSurah(),
+          create: (context) => FetchSurahCubit()..fetchSurah(),
         ),
         BlocProvider(
           create: (context) => SearchCubit(),

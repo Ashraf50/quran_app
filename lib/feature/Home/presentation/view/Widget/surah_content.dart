@@ -1,14 +1,13 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/theme/colors.dart';
 import 'package:quran_app/core/theme/theme_mode.dart';
-import 'package:quran_app/feature/Home/data/model/surah_content_model/ayah.dart';
+import 'package:quran_app/feature/Home/data/model/quran_model/ayahs.dart';
 import 'package:quran_app/feature/Home/presentation/view/Widget/ayah_verses.dart';
 import 'package:share_plus/share_plus.dart';
 
-class SurahContent extends StatefulWidget {
-  final Ayah ayah;
+class SurahContent extends StatelessWidget {
+  final Ayahs ayah;
   final Widget icon;
   final Function() onPressed;
   const SurahContent({
@@ -18,13 +17,6 @@ class SurahContent extends StatefulWidget {
     required this.ayah,
   });
 
-  @override
-  State<SurahContent> createState() => _SurahContentState();
-}
-
-class _SurahContentState extends State<SurahContent> {
-  bool isPlaying = false;
-  final player = AudioPlayer();
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
@@ -43,49 +35,22 @@ class _SurahContentState extends State<SurahContent> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 10),
-                child: AyahVerses(ayahVerses: widget.ayah.numberInSurah!),
+                child: AyahVerses(ayahVerses: ayah.id!),
               ),
               Row(
                 children: [
                   IconButton(
                     onPressed: () {
-                      Share.share(widget.ayah.text!);
+                      Share.share(ayah.ar!);
                     },
                     icon: Icon(
                       Icons.share_outlined,
                       color: secondColor,
                     ),
                   ),
-                  isPlaying
-                      ? IconButton(
-                          onPressed: () {
-                            setState(() {
-                              player.stop();
-                              isPlaying = false;
-                            });
-                          },
-                          icon: Icon(
-                            Icons.pause,
-                            color: secondColor,
-                            size: 30,
-                          ),
-                        )
-                      : IconButton(
-                          onPressed: () {
-                            setState(() {
-                              player.play(UrlSource(widget.ayah.audio!));
-                              isPlaying = true;
-                            });
-                          },
-                          icon: Icon(
-                            Icons.play_arrow_outlined,
-                            color: secondColor,
-                            size: 30,
-                          ),
-                        ),
                   IconButton(
-                    onPressed: widget.onPressed,
-                    icon: widget.icon,
+                    onPressed: onPressed,
+                    icon: icon,
                   ),
                 ],
               )
@@ -100,7 +65,7 @@ class _SurahContentState extends State<SurahContent> {
           child: Directionality(
             textDirection: TextDirection.rtl,
             child: Text(
-              widget.ayah.text!,
+              ayah.ar!,
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,

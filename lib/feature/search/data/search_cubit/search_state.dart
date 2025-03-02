@@ -1,11 +1,11 @@
-import 'package:quran_app/feature/Home/data/model/surah_model/surah_model.dart';
+import '../../../Home/data/model/quran_model/quran_model.dart';
 
 abstract class SearchState {}
 
 class SearchInitial extends SearchState {}
 
 class SearchSuccess extends SearchState {
-  final List<SurahModel> quran;
+  final List<QuranModel> quran;
   SearchSuccess(this.quran);
 }
 

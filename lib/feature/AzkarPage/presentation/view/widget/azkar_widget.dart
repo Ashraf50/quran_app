@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/theme/colors.dart';
 import 'package:quran_app/core/theme/theme_mode.dart';
-import 'package:quran_app/core/utils/azkar_model/array.dart';
+import 'package:quran_app/feature/AzkarPage/data/model/azkar_model/array.dart';
 import 'package:quran_app/core/widget/show_snack_bar.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -44,33 +44,6 @@ class _AzkarWidgetState extends State<AzkarWidget> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                isPlaying
-                    ? IconButton(
-                        onPressed: () {
-                          setState(() {
-                            player.stop();
-                            isPlaying = false;
-                          });
-                        },
-                        icon: Icon(
-                          Icons.pause,
-                          color: secondColor,
-                          size: 30,
-                        ),
-                      )
-                    : IconButton(
-                        onPressed: () {
-                          setState(() {
-                            player.play(AssetSource(widget.azkar.audio!));
-                            isPlaying = true;
-                          });
-                        },
-                        icon: Icon(
-                          Icons.play_arrow_outlined,
-                          color: secondColor,
-                          size: 30,
-                        ),
-                      ),
                 IconButton(
                   onPressed: () {
                     Share.share(widget.azkar.text!);

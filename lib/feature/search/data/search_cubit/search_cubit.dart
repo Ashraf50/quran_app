@@ -1,14 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran_app/feature/Home/data/model/surah_model/surah_model.dart';
+import 'package:quran_app/feature/Home/data/model/quran_model/quran_model.dart';
 
-class SearchCubit extends Cubit<List<SurahModel>> {
+class SearchCubit extends Cubit<List<QuranModel>> {
   SearchCubit() : super([]);
 
   void searchSurah(String query) {
-    List<SurahModel> filteredSurah = state
+    List<QuranModel> filteredSurah = state
         .where((surah) =>
             (surah.name!.toLowerCase().contains(query)) ||
-            (surah.englishName!.toLowerCase().contains(query)))
+            (surah.nameTranslation!.toLowerCase().contains(query)))
         .toList();
     emit(filteredSurah);
   }

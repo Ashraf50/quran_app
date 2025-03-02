@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:quran_app/core/theme/colors.dart';
 import 'package:quran_app/core/theme/text_style.dart';
 import 'package:quran_app/core/theme/theme_mode.dart';
-import 'package:quran_app/core/utils/prayer_time_model/pray_time_model.dart';
+import 'package:quran_app/feature/prayer_time/data/model/prayer_time_model/pray_time_model.dart';
 import 'package:quran_app/core/widget/conver_date.dart';
 
 class PrayTimeWidget extends StatelessWidget {
