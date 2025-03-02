@@ -9,7 +9,7 @@ showSnackBar(BuildContext context, String text, IconData icon) {
         children: [
           Icon(
             icon,
-            color: secondColor,
+            color: AppColors.primaryColor,
           ),
           const SizedBox(
             width: 10,

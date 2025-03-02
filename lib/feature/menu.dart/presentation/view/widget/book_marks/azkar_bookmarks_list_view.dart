@@ -41,7 +41,7 @@ class AzkarBookmarksListView extends StatelessWidget {
                             azkar: cubit.selectedBooKMarks[index],
                             icon: Icon(
                               Icons.bookmark_remove_rounded,
-                              color: secondColor,
+                              color: AppColors.primaryColor,
                             ),
                             onPressed: () {
                               cubit.delete(cubit.selectedBooKMarks[index]);

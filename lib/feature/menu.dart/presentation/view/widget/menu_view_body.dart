@@ -26,7 +26,9 @@ class MenuViewBody extends StatelessWidget {
           ),
           CustomListTile(
             title: "Add new collection",
-            textColor: themeProvider.isDarkTheme ? Colors.white : secondColor,
+            textColor: themeProvider.isDarkTheme
+                ? Colors.white
+                : AppColors.primaryColor,
             leftIcon: FontAwesomeIcons.folder,
             rightIcon: Icons.sort,
           ),

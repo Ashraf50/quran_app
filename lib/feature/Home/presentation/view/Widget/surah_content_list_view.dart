@@ -48,7 +48,7 @@ class SurahContentListView extends StatelessWidget {
                     cubit.isSelected(ayahs[index])
                         ? Icons.bookmark
                         : Icons.bookmark_border,
-                    color: secondColor,
+                    color: AppColors.primaryColor,
                   ),
                 );
               },

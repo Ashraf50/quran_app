@@ -104,7 +104,8 @@ class PrayWidget extends StatelessWidget {
           borderRadius: const BorderRadius.all(
             Radius.circular(10),
           ),
-          color: themeProvider.isDarkTheme ? secondColor : Colors.white,
+          color:
+              themeProvider.isDarkTheme ? AppColors.primaryColor : Colors.white,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,

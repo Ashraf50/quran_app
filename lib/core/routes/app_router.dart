@@ -3,7 +3,6 @@ import 'package:quran_app/feature/AzkarPage/data/model/azkar_model/azkar_model.d
 import 'package:quran_app/core/widget/bottom_bar.dart';
 import 'package:quran_app/feature/Home/data/model/quran_model/quran_model.dart';
 import 'package:quran_app/feature/Home/presentation/view/details_view.dart';
-import 'package:quran_app/feature/radio/presentation/view/radio_details_view.dart';
 import 'package:quran_app/feature/search/presentation/view/search_view.dart';
 import 'package:quran_app/feature/splash/presentation/view/splash_view.dart';
 import '../../feature/AzkarPage/presentation/view/widget/azkar_content_view.dart';
@@ -11,6 +10,7 @@ import '../../feature/menu.dart/presentation/view/widget/book_marks/azkar_bookma
 import '../../feature/menu.dart/presentation/view/widget/book_marks/book_marks.dart';
 import '../../feature/menu.dart/presentation/view/widget/book_marks/surah_bookmarks_list_view.dart';
 import '../../feature/prayer_time/presentation/view/widget/all_month_pray_time_view.dart';
+import '../../feature/quran player/presentation/view/player_details_view.dart';
 
 class AppRouter {
   late final GoRouter router = GoRouter(
@@ -57,11 +57,14 @@ class AppRouter {
             );
           }),
       GoRoute(
-          path: '/radio_details',
+          path: '/player_details',
           builder: (context, state) {
-            final surah = state.extra as int;
-            return RadioDetailsView(
-              surahNum: surah,
+            final extra = state.extra as Map<String, dynamic>;
+            final surahNum = extra['surahNum'] as String;
+            final surahName = extra['surahName'] as String;
+            return PlayerDetailsView(
+              surahNum: surahNum,
+              surahName: surahName,
             );
           }),
       GoRoute(

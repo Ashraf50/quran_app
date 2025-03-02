@@ -29,7 +29,7 @@ class AllMonthTimeListView extends StatelessWidget {
                 if (formattedDay == date) {
                   return AllMonthWidget(
                     color: themeProvider.isDarkTheme
-                        ? secondColor
+                        ? AppColors.primaryColor
                         : const Color(0xffF4E8F6),
                     pray: state.time[index],
                   );

@@ -32,7 +32,7 @@ class CustomListTile extends StatelessWidget {
                   onPressed: () {},
                   icon: Icon(
                     leftIcon,
-                    color: secondColor,
+                    color: AppColors.primaryColor,
                     size: 23,
                   ),
                 ),

@@ -20,7 +20,7 @@ class TextFieldSearch extends StatelessWidget {
         alignment: Alignment.center,
         height: 55,
         decoration: BoxDecoration(
-          border: Border.all(color: secondColor),
+          border: Border.all(color: AppColors.primaryColor),
           borderRadius: BorderRadius.circular(15),
         ),
         child: Directionality(
@@ -36,7 +36,7 @@ class TextFieldSearch extends StatelessWidget {
               ),
               suffixIcon: Icon(
                 Icons.search,
-                color: secondColor,
+                color: AppColors.primaryColor,
               ),
               border: InputBorder.none,
             ),

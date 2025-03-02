@@ -41,7 +41,7 @@ class SurahBookmarksListView extends StatelessWidget {
                             ayah: cubit.selectedBooKMarks[index],
                             icon: Icon(
                               Icons.bookmark_remove_rounded,
-                              color: secondColor,
+                              color: AppColors.primaryColor,
                             ),
                             onPressed: () {
                               cubit.delete(cubit.selectedBooKMarks[index]);

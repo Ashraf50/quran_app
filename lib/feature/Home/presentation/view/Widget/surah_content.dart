@@ -45,7 +45,7 @@ class SurahContent extends StatelessWidget {
                     },
                     icon: Icon(
                       Icons.share_outlined,
-                      color: secondColor,
+                      color: AppColors.primaryColor,
                     ),
                   ),
                   IconButton(

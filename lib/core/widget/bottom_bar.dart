@@ -6,7 +6,7 @@ import 'package:quran_app/feature/AzkarPage/presentation/view/azkar_view.dart';
 import 'package:quran_app/feature/Home/presentation/view/home_view.dart';
 import 'package:quran_app/feature/menu.dart/presentation/view/menu_view.dart';
 import 'package:quran_app/feature/prayer_time/presentation/view/prayer_time_view.dart';
-import 'package:quran_app/feature/radio/presentation/view/radio_view.dart';
+import '../../feature/quran player/presentation/view/player_view.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({super.key});
@@ -26,7 +26,7 @@ class _BottomBarState extends State<BottomBar> {
   List pages = [
     const HomeView(),
     const PrayerTimeView(),
-    const RadioView(),
+    const PlayerView(),
     const AzkarView(),
     const MenuView(),
   ];
@@ -38,13 +38,13 @@ class _BottomBarState extends State<BottomBar> {
         items: [
           CustomSvg(assetName: 'quran'),
           CustomSvg(assetName: 'azan'),
-          CustomSvg(assetName: 'radio'),
+          CustomSvg(assetName: 'sounds'),
           CustomSvg(assetName: 'azkar'),
           CustomSvg(assetName: 'menu'),
         ],
         height: 50,
         backgroundColor: Colors.transparent,
-        color: secondColor,
+        color: AppColors.primaryColor,
         index: currentIndex,
         onTap: changeItem,
       ),

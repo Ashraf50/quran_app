@@ -50,7 +50,7 @@ class _AzkarWidgetState extends State<AzkarWidget> {
                   },
                   icon: Icon(
                     Icons.share,
-                    color: secondColor,
+                    color: AppColors.primaryColor,
                   ),
                 ),
                 IconButton(
@@ -61,13 +61,13 @@ class _AzkarWidgetState extends State<AzkarWidget> {
                   },
                   icon: Icon(
                     Icons.copy_outlined,
-                    color: secondColor,
+                    color: AppColors.primaryColor,
                   ),
                 ),
                 IconButton(
                   onPressed: widget.onPressed,
                   icon: widget.icon,
-                  color: secondColor,
+                  color: AppColors.primaryColor,
                 )
               ],
             ),

@@ -43,7 +43,7 @@ class PrayTimeWidget extends StatelessWidget {
                     onPressed: () {},
                     icon: Icon(
                       Icons.share,
-                      color: secondColor,
+                      color: AppColors.primaryColor,
                     ),
                   ),
                   Padding(

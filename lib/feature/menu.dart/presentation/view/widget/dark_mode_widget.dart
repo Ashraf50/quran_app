@@ -25,7 +25,7 @@ class _DarkModeWidgetState extends State<DarkModeWidget> {
               Icon(
                 Icons.dark_mode_outlined,
                 size: 27,
-                color: secondColor,
+                color: AppColors.primaryColor,
               ),
               const SizedBox(
                 width: 18,
@@ -44,7 +44,7 @@ class _DarkModeWidgetState extends State<DarkModeWidget> {
             onChanged: (val) {
               themeProvider.setThemeData = val;
             },
-            activeColor: secondColor,
+            activeColor: AppColors.primaryColor,
           ),
         ],
       ),
